@@ -1,29 +1,31 @@
-# GitHub GIG Cymru Training Series
-## Interactive Training Materials for NHS Wales Analytics Teams
+# GitHub Training Series for Analytics and Data Teams
+## Interactive Training Materials for Healthcare Analytics Teams
+
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
 ---
 
 ## 📋 Overview
 
-This comprehensive training series transforms GitHub from a developer tool into a powerful platform for healthcare analytics collaboration across NHS Wales. The materials are designed for **interactive training sessions** with live demonstrations, hands-on exercises, and real-world NHS Wales scenarios.
+This comprehensive training series transforms GitHub from a developer tool into a powerful platform for healthcare analytics collaboration. The materials are designed for **interactive training sessions** with live demonstrations, hands-on exercises, and real-world healthcare analytics scenarios.
 
 ### 🎯 Training Philosophy
 
 **Interactive Learning:** These materials are meant to be used alongside live instruction, not as standalone reading materials. Each session combines:
 
 - 📊 **Live Demonstrations** - Instructor-led walkthroughs of GitHub features
-- 🤝 **Hands-On Practice** - Immediate application with NHS Wales scenarios  
+- 🤝 **Hands-On Practice** - Immediate application with healthcare analytics scenarios  
 - 💬 **Group Discussions** - Clinical and technical team collaboration
 - 🏥 **Real-World Context** - Authentic healthcare analytics use cases
 - ✅ **Skills Validation** - Practical competency assessments
 
-### 🏥 NHS Wales Context
+### 🏥 Healthcare Analytics Context
 
-Every exercise, example, and scenario is grounded in real NHS Wales healthcare analytics work:
+Every exercise, example, and scenario is grounded in real healthcare analytics work:
 
 - **Patient safety** and clinical quality improvement initiatives
-- **Cross-site collaboration** between Cardiff, Swansea, Newport, and Bridgend
-- **Regulatory compliance** with GDPR, clinical audit, and NHS Digital requirements
+- **Cross-site collaboration** between multiple healthcare facilities
+- **Regulatory compliance** with GDPR, clinical audit, and healthcare information governance requirements
 - **Clinical validation** processes and stakeholder engagement
 - **Data governance** and information security considerations
 
@@ -35,7 +37,7 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 **Duration:** 30 minutes | **Format:** Interactive workshop with live demos
 
 **Learning Focus:** Strategic foundation and core concepts
-- GitHub GIG Cymru vision and strategic benefits for NHS Wales
+- GitHub vision and strategic benefits for healthcare analytics teams
 - Healthcare analytics collaboration challenges and solutions
 - Version control concepts with clinical data scenarios
 - Basic GitHub terminology and core concepts
@@ -44,7 +46,7 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 - Live demo of GitHub transforming analytical workflows
 - Group discussion on current collaboration pain points
 - Hands-on account setup and basic repository exploration
-- Team exercise creating first NHS Wales healthcare repository
+- Team exercise creating first healthcare analytics repository
 
 **Prerequisites:** None - suitable for complete beginners
 
@@ -83,7 +85,7 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 - Live demonstration of complex merge scenarios
 - Pair programming exercise with intentional conflicts
 - Group simulation of clinical validation workflow
-- Real-time collaboration across simulated NHS Wales sites
+- Real-time collaboration across simulated healthcare sites
 
 **Prerequisites:** Sessions 1-2 completion and basic Git understanding
 
@@ -100,9 +102,9 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 
 **Interactive Elements:**
 - Instructor-guided interface tour with live examples
-- Scavenger hunt through NHS Wales repositories
+- Scavenger hunt through healthcare analytics repositories
 - Code review simulation with clinical accuracy focus
-- Team exercise organizing complex healthcare project structure
+- Team exercise organising complex healthcare project structure
 
 **Prerequisites:** Sessions 1-3 and comfort with web interfaces
 
@@ -140,7 +142,7 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 - Live environment setup and configuration
 - Collaborative Jupyter notebook development exercise
 - Real-time pair programming with VS Code Live Share
-- Integration demonstration with NHS Wales development tools
+- Integration demonstration with healthcare analytics development tools
 
 **Prerequisites:** Sessions 1-5 and VS Code installation capability
 
@@ -151,12 +153,12 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 
 **Learning Focus:** Project management and team collaboration
 - GitHub Issues for healthcare analytics task management
-- GitHub Projects for organizing NHS Wales initiatives  
+- GitHub Projects for organising healthcare analytics initiatives  
 - Team discussions and knowledge sharing platforms
 - Workflow automation with GitHub Actions
 
 **Interactive Elements:**
-- Live project board setup for Wales-wide initiative
+- Live project board setup for organisation-wide initiative
 - Simulation of multi-site collaboration scenario
 - Hands-on GitHub Actions workflow creation
 - Group exercise managing complex healthcare project lifecycle
@@ -211,13 +213,13 @@ Every exercise, example, and scenario is grounded in real NHS Wales healthcare a
 
 ```text
 Session Structure (Example - Session 4):
-┌─ Introduction (5 minutes)
+├─ Introduction (5 minutes)
 │  ├─ Learning objectives and context
 │  ├─ Connection to previous sessions
-│  └─ NHS Wales scenario introduction
+│  └─ Healthcare analytics scenario introduction
 ├─ Live Demonstration (15 minutes)
 │  ├─ Instructor-led feature walkthrough
-│  ├─ Real NHS Wales repository examples
+│  ├─ Real healthcare analytics repository examples
 │  └─ Interactive Q&A and discussion
 ├─ Hands-On Practice (8 minutes)
 │  ├─ Individual exercises with guidance
@@ -234,7 +236,7 @@ Session Structure (Example - Session 4):
 - **12-16 participants** for interactive workshops
 - **4-person teams** for group exercises and simulations
 - **Mixed roles** (analysts, clinical leads, developers, project managers)
-- **Cross-site representation** when possible (Cardiff, Swansea, Newport)
+- **Cross-site representation** when possible (multiple healthcare facilities)
 
 ### 🔧 Technical Requirements
 
@@ -244,13 +246,13 @@ Session Structure (Example - Session 4):
 Participant Requirements:
 □ Laptop/workstation with admin rights for software installation
 □ Reliable internet connection for GitHub access
-□ NHS Wales network access for relevant systems
+□ Organisational network access for relevant systems
 □ GitHub account creation capability
 □ Basic computer literacy and file management skills
 
 Instructor Requirements:
 □ Projection/screen sharing capability for live demonstrations
-□ GitHub organization admin access for NHS Wales
+□ GitHub organisation admin access for your organisation
 □ Sample repositories and datasets prepared
 □ Backup plans for technical difficulties
 □ Experience with healthcare analytics workflows
@@ -353,10 +355,10 @@ The following materials provide deeper exploration of advanced GitHub features a
 **Recommended For:**
 - Teams ready to explore AI-assisted development
 - Advanced developers looking to enhance productivity
-- Organizations considering AI integration policies
+- Organisations considering AI integration policies
 - Follow-up sessions after core curriculum completion
 
-**Prerequisites:** Completion of Sessions 1-7, experience with development environments, understanding of NHS Wales data governance requirements
+**Prerequisites:** Completion of Sessions 1-7, experience with development environments, understanding of healthcare data governance requirements
 
 ### Appendix A2: Introduction to GitHub
 **Content:** [`A2_Introduction_to_GitHub.md`](Appendix/A2_Introduction_to_GitHub.md)
@@ -401,10 +403,10 @@ The following materials provide deeper exploration of advanced GitHub features a
 - Alternative approaches for different skill levels
 
 **Post-Training:**
-- NHS Wales GitHub Slack channel for ongoing questions
+- Organisation GitHub community channels for ongoing questions
 - Internal documentation and knowledge base
 - Follow-up sessions for advanced topics
-- Mentoring program for continued development
+- Mentoring programme for continued development
 
 ### 📖 Additional Resources
 
@@ -414,15 +416,15 @@ The following materials provide deeper exploration of advanced GitHub features a
 - [GitHub Skills](https://skills.github.com/) - Interactive learning courses
 - [GitHub Community](https://github.community/) - User community and discussions
 
-**NHS Wales Specific:**
-- GitHub GIG Cymru implementation guidelines
-- NHS Wales data governance and GitHub policies
-- Healthcare analytics best practices repository
+**Healthcare Analytics Resources:**
+- Healthcare analytics best practices repositories
 - Cross-site collaboration templates and workflows
+- Healthcare data governance and GitHub integration guides
+- Clinical validation workflow examples
 
 ### 🤝 Community and Collaboration
 
-**NHS Wales GitHub Community:**
+**Healthcare Analytics GitHub Community:**
 - Regular user group meetings and knowledge sharing
 - Cross-site collaboration showcases and case studies  
 - Best practices development and documentation
@@ -436,9 +438,9 @@ The following materials provide deeper exploration of advanced GitHub features a
 
 ---
 
-*This training series is designed to transform GitHub from a developer tool into a powerful platform for healthcare analytics collaboration across NHS Wales. The interactive format ensures immediate application of learning with real-world NHS Wales scenarios, building both technical competency and collaborative confidence.*
+*This training series is designed to transform GitHub from a developer tool into a powerful platform for healthcare analytics collaboration. The interactive format ensures immediate application of learning with real-world healthcare scenarios, building both technical competency and collaborative confidence.*
 
-**Version:** 1.0 | **Last Updated:** 2024 | **Developed for:** NHS Wales Analytics Teams
+**Version:** 1.0 | **Last Updated:** 2025 | **Developed by ABUHB Business Intelligence Team**
 
 ## 📚 Prerequisites
 
@@ -450,19 +452,18 @@ The following materials provide deeper exploration of advanced GitHub features a
 
 ## 🔗 Related Resources
 
-- [ABB GitHub Configuration Repository](../README.md)
-- [Repository Naming Convention](../Repo%20Management/RepoNamingConfig.md)
-- [Team Management Guidelines](../Teams_Management/TeamManagment.md)
-- [Workflow Management](../Workflow_Management/)
+- [GitHub Documentation](https://docs.github.com/)
+- [Git Documentation](https://git-scm.com/doc)
+- [GitHub Skills](https://skills.github.com/)
+- [Healthcare Analytics Best Practices](https://github.com/topics/healthcare-analytics)
 
 ## 📞 Support
 
-For questions during or after the training:
-- **Training Contact**: ABB - GitHub Owners team
-- **Technical Support**: github-owners@wales.nhs.uk
-- **General IT Support**: ABB IT Service Desk
+For questions, feedback, or contributions:
+- **GitHub Issues**: Use this repository's Issues for questions or suggestions
+- **Discussions**: Join the conversation in GitHub Discussions
+- **Pull Requests**: Contribute improvements directly
 
 ---
 
-*This training package is maintained by the ABB - GitHub Owners team*  
-*Version: 1.0*
+*Developed by ABUHB Business Intelligence Team | Version 1.0 | 2025*

@@ -1,6 +1,8 @@
-# Session 2: Introduction to GIT
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 2: Introduction to GIT
 
 **Duration**: 1 hour  
 **Time**: 09:30 - 10:30
@@ -371,7 +373,7 @@ SHA-1: completely different hash!
 
 ### Benefits for Data Integrity
 
-1. **Tamper Detection**: Any unauthorized change detected immediately
+1. **Tamper Detection**: Any unauthorised change detected immediately
 2. **Audit Trail**: Complete verifiable history of all changes
 3. **Data Recovery**: Lost or corrupted data can be recovered from other copies
 4. **Compliance**: Meets regulatory requirements for data integrity and traceability
@@ -854,7 +856,7 @@ Now that you understand how GIT works internally, we'll explore:
 | Git CLI Command | GitHub UI Command | Description | When to Use |
 |----------------|-------------------|-------------|-------------|
 | `git reset --hard HEAD~1` | N/A | Remove last commit entirely (DESTRUCTIVE) | Committed sensitive patient data by mistake |
-| `git push --force` | N/A | Overwrite remote history (DANGEROUS) | After authorized history rewrite (rare) |
+| `git push --force` | N/A | Overwrite remote history (DANGEROUS) | After authorised history rewrite (rare) |
 | `git reflog` | N/A | View all HEAD movements (recovery tool) | Find "lost" commits after reset mishap |
 | `git fsck --full` | N/A | Check repository integrity | Verify no corruption after system crash |
 
@@ -897,5 +899,5 @@ git push                    # Share the fix
 
 ---
 
-*Session 2 of 8 | GitHub GIG Cymru Training Series*  
-*ABUHB BIU | Business Intelligence Unit*
+*Session 2 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

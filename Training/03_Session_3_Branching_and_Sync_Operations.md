@@ -1,6 +1,8 @@
-# Session 3: Branching and Sync Operations
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 3: Branching and Sync Operations
 
 **Duration**: 1 hour  
 **Time**: 10:30 - 11:30
@@ -24,14 +26,14 @@ By the end of this session, you will understand:
 
 A **branch** is an independent line of development within a repository that allows experimentation without affecting main production code.
 
-### ABUHB Context
+### Practical Context
 
 Think of branches like different versions of your analysis:
 
-- **main/master**: Production-ready patient reports
-- **feature/covid-analysis**: New COVID-19 metrics development
-- **bugfix/Admission Fact Table Date**: Fix for incorrect admission calculations
-- **data/new-patient-source**: Integration of new data feed
+- **main/master**: Production-ready reports and dashboards
+- **feature/new-analysis**: New metrics development
+- **bugfix/calculation-error**: Fix for incorrect calculations
+- **data/new-source**: Integration of new data feed
 
 ### Key Benefits
 
@@ -561,7 +563,7 @@ In ABUHB, branch protection is applied to the `main` branch by default. This ens
 
 - **Code Quality Assurance**: Ensures all changes are reviewed and tested before deployment.
 - **Audit and Compliance**: Maintains a clear record of approvals and changes for regulatory purposes.
-- **Risk Mitigation**: Prevents accidental or unauthorized changes to production code.
+- **Risk Mitigation**: Prevents accidental or unauthorised changes to production code.
 - **Team Collaboration**: Encourages a structured workflow with clear accountability.
 
 By enforcing these rules, ABUHB ensures that the `main` branch remains a reliable source for production-ready code and analytics.
@@ -851,7 +853,7 @@ A **Pull Request (PR)** is a formal mechanism to review and discuss changes befo
 
 - **Learning**: Junior analysts learn from senior review
 - **Documentation**: Discussions explain business logic
-- **Standardization**: Consistent coding patterns across team
+- **Standardisation**: Consistent coding patterns across team
 
 #### 3. Audit Trail
 
@@ -1572,5 +1574,5 @@ git checkout feature/patient-metrics
 
 ---
 
-*Session 3 of 8 | GitHub GIG Cymru Training Series*  
-*ABUHB BIU | Business Intelligence Unit*
+*Session 3 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

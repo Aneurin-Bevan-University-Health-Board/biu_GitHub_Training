@@ -1,4 +1,6 @@
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
+
+---
 
 # Session 5: GitHub Desktop and File Management
 
@@ -292,7 +294,7 @@ Healthcare Analytics Large Files:
 ├── 📊 Raw datasets (.csv, .xlsx, .parquet)
 ├── 🧠 Machine learning models (.pkl, .joblib, .h5)
 ├── 📈 Generated reports (.pdf, .html with embedded charts)
-├── 🖼️ Visualization outputs (.png, .svg, complex charts)
+├── 🖼️ Visualisation outputs (.png, .svg, complex charts)
 └── 📚 Documentation (.docx, .pptx with embedded media)
 ```
 
@@ -541,7 +543,7 @@ Audit Trail Maintenance:
    - Regular review of repository access
    - Role-based permissions
    - Temporary access for external collaborators
-   - Monitor for unauthorized changes
+   - Monitor for unauthorised changes
 ```
 
 #### Synchronization Workflows
@@ -689,5 +691,5 @@ Multi-Dev Collaboration:
 - [NHS Wales File Management Guidelines](../Technical_Configuration/2.2%20Repo_Configuration.md)
 - [Data Science Tool Integration](../GitHub_Copilot_Guide/README.md)
 
-*Session 4 of 7 | GitHub GIG Cymru Training Series*  
-*NHS Wales BIU | Business Intelligence Unit*
+*Session 5 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

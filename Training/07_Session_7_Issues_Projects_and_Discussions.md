@@ -1,6 +1,8 @@
-# Session 7: Issues, Projects, and Discussions
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 7: Issues, Projects, and Discussions
 
 **Duration**: 30 minutes  
 **Time**: 14:00 - 14:30
@@ -37,7 +39,7 @@ Potential Type of Issue Categories:
 ├── ✨ Feature Requests
 │   ├── New clinical indicators or metrics
 │   ├── Additional data sources or integrations
-│   ├── Enhanced visualization requirements
+│   ├── Enhanced visualisation requirements
 │   └── Compliance or regulatory updates
 ├── 📊 Data Issues
 │   ├── Missing or incomplete data sources
@@ -691,7 +693,7 @@ jobs:
 
 ```text
 NHS Wales Integration Architecture:
-├── 🔐 Authentication and Authorization
+├── 🔐 Authentication and Authorisation
 │   ├── Azure Active Directory integration
 │   ├── NHS Wales service accounts
 │   ├── Role-based access controls
@@ -736,5 +738,5 @@ NHS Wales Integration Architecture:
 
 ---
 
-*Session 7 of 8 | GitHub GIG Cymru Training Series*  
-*ABUHB BIU | Business Intelligence Unit*
+*Session 7 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

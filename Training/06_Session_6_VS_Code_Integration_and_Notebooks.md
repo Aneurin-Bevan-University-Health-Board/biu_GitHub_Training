@@ -1,6 +1,8 @@
-# Session 6: Using GitHub with VS Code (30‑Minute Overview)
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 6: Using GitHub with VS Code (30‑Minute Overview)
 
 **Duration:** 30 minutes  
 **Time**: 13:30 - 14:00  
@@ -108,7 +110,7 @@ Optional tooling later: pre-commit hooks (`nbstripout`) once basics are adopted.
 4. Descriptive commit messages referencing work items.  
 5. Delete stale feature branches (reduces attack surface).  
 6. Keep dependencies updated via scheduled PRs (Dependabot).  
-7. Use devcontainer / Codespaces to standardize Python versions.  
+7. Use devcontainer / Codespaces to standardise Python versions.  
 8. Enable audit logging (GitHub org level) – verify periodically.
 
 ---
@@ -179,5 +181,5 @@ Issues, Projects, Discussions – turning analytics work into traceable, priorit
 
 ---
 
-*Session 6 of 8 | GitHub GIG Cymru Training Series*  
-*ABUHB BIU | Business Intelligence Unit*
+*Session 6 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

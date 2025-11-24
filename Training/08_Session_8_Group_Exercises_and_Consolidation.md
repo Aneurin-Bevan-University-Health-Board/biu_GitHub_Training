@@ -1,6 +1,8 @@
-# Session 8: Group Exercises and Consolidation
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 8: Group Exercises and Consolidation
 
 **Duration**: 30 minutes  
 **Time**: 14:30 - 15:00
@@ -263,6 +265,6 @@ You have completed the **GitHub GIG Cymru Training Series** for NHS Wales analyt
 
 ---
 
-*Session 8 of 8 | GitHub GIG Cymru Training Series*  
-*ABUHB BIU | Business Intelligence Unit*  
+*Session 8 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*  
 *Training Complete - Ready for Real-World Application*

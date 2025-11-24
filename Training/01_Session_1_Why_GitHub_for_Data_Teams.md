@@ -1,9 +1,8 @@
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
+
 ---
 
-# Session 1: Introduction to GitHub and Why GitHub for Data Teams?
-
-
+# Session 1: Introduction to GitHub and Why GitHub for Analytics and Data Teams?
 
 **Duration**: 30 minutes  
 **Time**: 09:00 - 09:30
@@ -53,12 +52,12 @@ Local Computer          GitHub Cloud
 
 ---
 
-## 🏥 What is GitHub GIG Cymru?
+## 🏥 GitHub for Healthcare Analytics and Data Teams
 
-**GitHub GIG Cymru** is a collaborative platform enabling secure and efficient development and sharing of analytics tools/code across NHS Wales organisations.
+GitHub is a collaborative platform enabling secure and efficient development and sharing of analytics tools and code across healthcare organisations.
 
 ### Purpose
-Facilitate advanced analytics, data engineering, data science, and innovation in health and care by breaking down silos and fostering collaboration.
+Facilitate advanced analytics, data engineering, data science, and innovation in healthcare by breaking down silos and fostering collaboration.
 
 ### Key Benefits
 
@@ -87,10 +86,10 @@ Facilitate advanced analytics, data engineering, data science, and innovation in
 - Backup and recovery capabilities
 
 #### Collaboration Tools
-- Enables teamwork across different NHS Wales organisations and ABUHB Departments
+- Enables teamwork across different healthcare organisations and departments
 - Version control prevents conflicts and data loss
 - Efficient project management and task tracking
-- Enables external collaboration with partners and stakeholders 
+- Enables collaboration with partners and stakeholders 
 
 #### Governance Framework
 - Adheres to information governance requirements
@@ -99,7 +98,7 @@ Facilitate advanced analytics, data engineering, data science, and innovation in
 
 ---
 
-## Why GitHub for Data Teams?
+## Why GitHub for Analytics and Data Teams?
 
 ### 1. Collaboration and Auditability
 
@@ -213,46 +212,41 @@ analytics-project/
     └── scripts/            # Deployment automation
 ```
 
-### 📦 Repository Provisioning (HALO Ticket Process)
+### 📦 Repository Provisioning and Governance
 
-All new repositories in ABUHB GitHub GIG Cymru require a **HALO ticket** before creation. This ensures governance, consistency, and auditability.
+Organisations should establish a governance process for creating new repositories. This ensures consistency, security, and auditability.
 
-#### Why a HALO ticket?
+#### Why Repository Governance?
 
-- Enforces naming, visibility defaults (private unless justified)
-- Confirms data classification (e.g. no patient identifiable data unless approved controls)
-- Captures initial access (teams, maintainers) for least‑privilege
-- Links purpose → approval → configuration for audit
-- Provides change traceability to future Terraform updates
+- Enforces naming conventions and visibility defaults (private unless justified)
+- Confirms data classification and security requirements
+- Captures initial access permissions following least-privilege principles
+- Links purpose → approval → configuration for audit trails
+- Provides change traceability for infrastructure changes
 
-#### Required HALO Fields
+#### Recommended Repository Request Information
 
 | Field | Description |
 |-------|-------------|
-| Proposed Name | Kebab/snake case, clear scope (e.g. `emergency-flow-analytics`) |
-| Purpose / Scope | One concise paragraph of intent |
-| Data Classification | None / Aggregated / Synthetic / (if sensitive → controls) |
+| Proposed Name | Clear, descriptive name using consistent conventions (e.g. `data-pipeline-analytics`) |
+| Purpose / Scope | Concise description of the repository's intent |
+| Data Classification | None / Aggregated / Synthetic / Sensitive (with appropriate controls) |
 | Maintainers | Initial responsible users/teams |
 | Team Access Matrix | Teams + permission levels (admin / maintain / write / triage / read) |
-| Visibility | Usually `private` (public requires explicit approval) |
-| Compliance Notes | IG considerations, validation requirements |
-| Dependencies | Upstream data sources / scheduled jobs |
-| Terraform Timing | Immediate / Scheduled batch |
-| HALO Reference | Ticket ID for audit (stored in repo description if needed) |
+| Visibility | Usually `private` (public requires explicit approval and review) |
+| Compliance Notes | Security, compliance, and validation requirements |
+| Dependencies | Upstream data sources or systems |
 
-#### Approval & Deployment Flow
+#### Approval & Deployment Best Practices
 
-1. Analyst submits HALO ticket with required fields.
-2. Governance review: naming, classification, access sanity check.
-3. GitHub Admin updates `terraform.tfvars` (adds repo block) in a feature branch.
-4. Terraform plan runs in secure Codespace; plan artifact attached to PR & HALO.
-5. CODEOWNERS / second reviewer approves.
-6. **Terraform apply (currently admin-only)** executed by GitHub Admin in Codespace.
-7. Repo appears; URL and team slugs posted back to HALO ticket; ticket closed.
+1. Submit repository request through your organisation's governance process
+2. Governance review: naming, classification, and access validation
+3. Infrastructure as Code (IaC) updates in a feature branch
+4. Code review and approval by appropriate reviewers
+5. Controlled deployment by authorised administrators
+6. Documentation of repository details and access
 
-> Self-service creation will be reassessed once policy-as-code maturity increases (see Session 8 roadmap). Until then, **no new repos without HALO + admin Terraform apply**.
-
-> Looking Ahead: Session 8 details Terraform governance and why restricting apply reduces configuration drift and risk.
+> Organisations may use Infrastructure as Code tools (like Terraform) to manage repository creation and configuration consistently. This reduces configuration drift and improves security.
 
 
 ### Naming Conventions
@@ -337,10 +331,11 @@ Closes #123
 
 ## 📖 Additional Resources
 
-- [GitHub for Healthcare Analytics Best Practices](../Technical_Configuration/README.md)
-- [ABUHB Wales GitHub Setup Guide](../Technical_Configuration/2.%20New_Repo_Setup.md)
+- [Official GitHub Documentation](https://docs.github.com/)
+- [Git Documentation](https://git-scm.com/doc)
+- [GitHub Skills - Interactive Learning](https://skills.github.com/)
 
 ---
 
-*Session 1 of 8 | GitHub GIG Cymru Training Series*
-*ABUHB BIU | Business Intelligence Unit*
+*Session 1 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

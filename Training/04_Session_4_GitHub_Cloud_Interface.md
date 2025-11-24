@@ -1,6 +1,8 @@
-# Session 4: GitHub Cloud Interface and Navigation
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 4: GitHub Cloud Interface and Navigation
 
 **Duration**: 30 minutes  
 **Time**: 11:30 - 12:00
@@ -117,7 +119,7 @@ GitHub renders Jupyter notebooks with:
 
 - **Code cells**: Syntax-highlighted Python/R/SQL
 - **Markdown cells**: Formatted documentation and explanations
-- **Output cells**: Results, charts, and visualizations (static)
+- **Output cells**: Results, charts, and visualisations (static)
 - **Metadata**: Kernel information and execution details
 - NB YOU MUST CLEAR ALL OURPUTS BEFORE COMMIT!
 
@@ -834,5 +836,5 @@ Quality Assurance:
 
 ---
 
-*Session 4 of 8 | GitHub GIG Cymru Training Series*  
-*ABUHB BIU | Business Intelligence Unit*
+*Session 4 of 8 | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*

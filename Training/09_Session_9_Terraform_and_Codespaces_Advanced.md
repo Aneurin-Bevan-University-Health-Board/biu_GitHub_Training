@@ -1,6 +1,8 @@
-# Session 9 (Optional): GitHub Governance with Terraform & Codespaces
+![BIU Logo](../links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](../links%20and%20logos/DDAT%20Logo.png)
 
-![BIU Logo](links%20and%20logos/BIU%20LOGO.png) ![DDAT Logo](links%20and%20logos/DDAT%20Logo.png)
+---
+
+# Session 9 (Optional): GitHub Governance with Terraform & Codespaces
 
 **Duration**: 45–60 minutes  
 **Time**: Optional - Advanced session  
@@ -34,7 +36,7 @@ By the end of this session you can:
 | Onboarding / offboarding | Delays or missed revocations | Controlled via code review |
 | Org state documentation | Fragmented spreadsheets/wiki | Code + state document configuration |
 
-> Use for standardization, auditability, scaling governance—avoid for highly experimental or ephemeral repos.
+> Use for standardisation, auditability, scaling governance—avoid for highly experimental or ephemeral repos.
 
 ---
 
@@ -247,7 +249,7 @@ graph TD
 | Phase | Improvement |
 |-------|-------------|
 | Short Term | CI plan on every PR + CODEOWNERS enforcement |
-| Mid Term | Remote backend (Terraform Cloud / Azure Storage) for centralized state |
+| Mid Term | Remote backend (Terraform Cloud / Azure Storage) for centralised state |
 | Mid Term | GitHub Actions OIDC for tokenless auth to backend |
 | Long Term | Policy as Code (OPA / Sentinel) for repository rule enforcement |
 | Long Term | SCIM / SSO group sync to reduce manual team definitions |
@@ -274,5 +276,5 @@ You now have a governance model to scale GitHub configuration safely using Terra
 
 > Start small: pilot with one or two repositories before broad adoption.
 
-*Session 8 (Optional) | GitHub GIG Cymru Training Series*  
-*NHS Wales BIU | Business Intelligence Unit*
+*Session 9 (Optional) | GitHub Training Series for Analytics and Data Teams*  
+*Developed by ABUHB Business Intelligence Team*
