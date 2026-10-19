@@ -1,7 +1,6 @@
-# Session 6: Using GitHub with Hybrid Workflows
+# Appendix A7: Using GitHub with Hybrid Workflows
 
-**Duration**: 30 minutes  
-**Time**: 12:30 - 13:00
+**Duration**: 30 minutes (self-directed)
 
 ## 🎯 Learning Objectives
 
@@ -757,7 +756,6 @@ Create `.devcontainer/devcontainer.json` in your repository:
 - Git: Pre-installed
 - GCloud CLI: `ghcr.io/devcontainers/features/gcloud:1`
 - Docker: `ghcr.io/devcontainers/features/docker-in-docker:1`
-- Terraform: `ghcr.io/devcontainers/features/terraform:1`
 
 **Extensions (auto-install):**
 - GitHub Copilot
@@ -1214,7 +1212,7 @@ Local Development → Commit → Push → PR → Review → Merge → Deploy
 
 ### Next Session Preview
 
-In **Session 7: Using GitHub Copilot and Agents**, we'll explore:
+In **Appendix A1: Using GitHub Copilot and Agents**, we'll explore:
 - GitHub Copilot features and capabilities
 - Code generation with AI
 - Copilot Chat for problem-solving
@@ -1234,5 +1232,5 @@ In **Session 7: Using GitHub Copilot and Agents**, we'll explore:
 
 ---
 
-*Session 6 of 7 | GitHub Training Package*  
+*Appendix A7 | GitHub Training Package*  
 *Aneurin Bevan University Health Board*

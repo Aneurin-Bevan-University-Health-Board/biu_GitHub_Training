@@ -1,0 +1,853 @@
+# SINGLE SOURCE OF TRUTH for the GitHub training deck.
+#
+#   Edit this file, then run:   python Training/slides/build_deck.py
+#
+# That one command:
+#   1. rebuilds Training/GitHub_Training_Day.pptx
+#   2. rewrites the generated "Slide Deck Content" block at the end of every session markdown file
+#   3. rewrites the session tables in README.md and Training/README.md
+#
+# CI runs `python Training/slides/build_deck.py --check`, which fails if the deck, the markdown or the
+# session tables have drifted from this file.  Do not hand-edit the generated blocks.
+#
+# Slide fields:  title | sections: [{heading, bullets}] | note (small grey line) | callout (bold navy line)
+
+deck:
+  title: GitHub for Analytics and Data Teams
+  subtitle: One-Day Training | ABUHB Business Intelligence
+  closing_title: Thank You
+  closing_subtitle: Questions? Raise a GitHub issue or contact the GitHub admin team.
+  breaks:
+  - {after_session: 4, label: Lunch, time: "11:30 - 12:15"}
+  agenda_footer: All hands-on work uses the training repository and synthetic data only. Never use real patient data in GitHub or Codespaces.
+
+sessions:
+# ---------------------------------------------------------------------------------------------------
+- number: 1
+  title: Why GitHub for Data Teams
+  duration: 30 minutes
+  time: "09:00 - 09:30"
+  file: Training/01_Session_1_Why_GitHub_for_Data_Teams.md
+  focus: Strategic benefits and core concepts
+  your_area:
+    heading: "Find your area and open your workspace"
+    minutes: 5
+    steps:
+    - "Sign in to GitHub with your ABUHB account and open the training repository"
+    - "Open the participants folder and find your folder, named firstname-lastname"
+    - "On the repository page choose Code, Codespaces, Create codespace on main: this is your workspace for the whole day"
+    - "Check that the terminal and editor open"
+    checkpoint: "A running Codespace, and you know where your folder is: participants/<your-folder>"
+    image: repo_area.png
+    image_position: right
+    image_alt: "Diagram of a participant area folder inside the shared training repository"
+  slides:
+  - title: What is GitHub?
+    sections:
+    - heading: Git — the engine
+      bullets:
+      - Version control system that tracks changes to files over time
+      - Distributed — every user has a complete copy of the project history
+      - Branching — separate lines of development for different pieces of work
+    - heading: GitHub — the platform
+      bullets:
+      - Web interface for working with Git repositories
+      - Collaboration tools — issues, pull requests and project boards
+      - Secure cloud hosting, with permissions and access control
+    note: Git is the engine. GitHub is the platform built around it.
+  - title: "GitHub Enterprise Cloud: What We Use (Not GitHub Free)"
+    sections:
+    - heading: ABUHB uses GitHub Enterprise Cloud
+      bullets:
+      - Our organisation is a paid Enterprise Cloud account, not a personal GitHub Free account
+      - You sign in with your ABUHB identity and access is controlled through the organisation
+      - Admins set the policies for repositories, Codespaces, Copilot and security
+    - heading: What the paid plan gives us that Free does not
+      bullets:
+      - Enforced branch protection and required reviews on private repositories
+      - Organisation-wide access control, single sign-on and an audit log
+      - Copilot Business licences and organisation controls for Codespaces
+      - Advanced Security products for private repositories (covered in Session 7)
+    callout: Do your NHS work only in the ABUHB organisation. Never use a personal Free account for it.
+  - title: "Before You Start: Your Setup Checklist"
+    sections:
+    - heading: You should already have
+      bullets:
+      - A GitHub account that is a member of the ABUHB organisation (Azure AD group ABB_BIU_GitHub_Users)
+      - A browser that can open Codespaces (nothing else to install). GitHub Desktop and VS Code are optional
+      - Signed in to GitHub, with single sign-on authorised for the organisation
+      - Access to the ndr-hb-abuhb-academy Google Cloud project, through your training group
+      - A GitHub personal access token, stored safely, if your trainer asks for one
+    - heading: If something is missing
+      bullets:
+      - "Ask the GitHub admin team: ABB.BIU.GitHub.Admin@nhswales365.onmicrosoft.com"
+      - Every new repository needs an approved HALO ticket
+    note: Full step-by-step instructions are in Training/00_Setup_and_Access.md.
+  - title: Creating a Personal Access Token (PAT)
+    sections:
+    - heading: A token is a password for one job
+      bullets:
+      - "Open GitHub, then Settings, Developer settings, Personal access tokens, Fine-grained tokens"
+      - Choose Generate new token, name it, and pick the ABUHB organisation as resource owner
+      - Set a short expiry and select only the repositories you need
+      - "Give the least access: Contents and Pull requests read and write, Metadata read"
+      - Copy the token once and save it in your credential manager or password manager
+    callout: Never put a token in code, a notebook, an issue or a Copilot prompt. If one leaks, revoke it at once.
+  - title: GitHub for Healthcare Analytics
+    sections:
+    - heading: Faster development
+      bullets:
+      - Remove technical barriers to collaborative work
+      - Reuse shared code and resources instead of starting again
+    - heading: Enhanced security
+      bullets:
+      - Share code securely, within approved protocols
+      - Controlled access and an audit trail for compliance
+    - heading: Improved insights
+      bullets:
+      - Efficient collaboration across teams and organisations
+      - A change log for every modification, surfaced in pull requests
+  - title: Why GitHub for Data Teams?
+    sections:
+    - heading: Collaboration and auditability
+      bullets:
+      - SQL, Python and notebooks live in repositories — not email or personal folders
+      - Every change is tracked, reviewed and documented
+      - Notebooks gain version history and reproducibility
+    - heading: Single source of truth
+      bullets:
+      - One canonical repository per project or product
+      - Protected main branch — only reviewed code reaches production
+      - Tagged releases for specific versions (for example "Q1-2024-Report")
+  - title: Rollback and Traceability
+    sections:
+    - heading: Rollback
+      bullets:
+      - A production problem? Revert to the last working version
+      - No manual restoring from backups
+    - heading: Traceability
+      bullets:
+      - Issue → Branch → Code → Tests → Pull Request → Review → Merge → Deploy → Issue closed
+      - Supports regulatory audit, quality assurance and knowledge transfer
+  - title: Setting Up Repositories for Success
+    sections:
+    - heading: Repository structure
+      bullets:
+      - README.md for project overview and setup
+      - sql/ for extracts, transforms and reports
+      - python/ for source code, notebooks and tests
+      - docs/ for methodology, results and compliance
+    - heading: Naming conventions
+      bullets:
+      - Branches — feature/new_api_onboarding, bugfix/measure_count, hotfix/urgent_data_sync
+      - "Commit messages — a clear summary line, then detail, then \"Closes #123\""
+  - title: Repository Governance
+    sections:
+    - heading: Why govern new repositories?
+      bullets:
+      - Consistent naming, and private by default
+      - Confirms data classification and security requirements
+      - Least-privilege access from day one
+      - Links purpose → approval → configuration for audit
+    - heading: A repository request covers
+      bullets:
+      - Name, purpose and maintainers
+      - Data classification and visibility
+      - Team access levels and compliance notes
+    callout: No patient data in GitHub — ever.
+
+  - title: How Access and New Repositories Work at ABUHB
+    sections:
+    - heading: Access
+      bullets:
+      - Access comes from the Azure AD group ABB_BIU_GitHub_Users
+      - Questions go to the GitHub admin team
+    - heading: New repositories
+      bullets:
+      - Raise a HALO ticket with the name, purpose, data classification and access list
+      - The admin team creates the repository once the ticket is approved
+# ---------------------------------------------------------------------------------------------------
+- number: 2
+  title: Introduction to GIT
+  duration: 45 minutes
+  time: "09:30 - 10:15"
+  file: Training/02_Session_2_Introduction_to_GIT.md
+  focus: GIT fundamentals and architecture
+  your_area:
+    heading: "Create your branch and fill in your README"
+    minutes: 5
+    steps:
+    - "In your Codespace terminal, create your branch: git switch -c training/<your-folder>"
+    - "Open participants/<your-folder>/README.md (already created for you) and fill it in"
+    - "Stage and commit with the message: Fill in my area README"
+    - "Run git status and git log to see what you made"
+    checkpoint: "README.md filled in and committed on your own branch (local only for now)"
+  slides:
+  - title: GIT vs GitHub
+    sections:
+    - heading: GIT
+      bullets:
+      - A distributed version control system, created in 2005
+      - Fast — most operations are local
+      - Data integrity — everything is checksummed before storage
+      - Free and open source
+    - heading: GitHub
+      bullets:
+      - A cloud platform built on top of GIT
+      - Adds pull requests, issues, projects, team management and Actions
+    note: GIT is the engine that manages version control. GitHub adds collaboration.
+  - title: How GIT Stores Your Work
+    image: object_model.png
+    image_position: right
+    image_alt: "Diagram: a commit points to a tree, which points to blobs and sub-trees"
+    sections:
+    - heading: The object model
+      bullets:
+      - Blob — file content
+      - Tree — directory structure
+      - Commit — a snapshot with metadata
+      - Tag — a named reference to a commit
+    - heading: Snapshots and integrity
+      bullets:
+      - GIT stores snapshots of the whole project, not differences
+      - Objects are addressed by a SHA-1 hash — any change gives a different hash
+      - Nothing changes or corrupts undetected
+  - title: The Three-Tree Architecture
+    image: three_trees.png
+    image_position: right
+    image_alt: "Diagram: files move from working directory to staging area to repository"
+    sections:
+    - heading: Three places your files live
+      bullets:
+      - Working directory — where you edit files
+      - Staging area (index) — what will go into the next commit
+      - Repository (HEAD) — the committed history
+    - heading: The three states of a file
+      bullets:
+      - Modified → Staged → Committed
+    note: Staging lets you choose exactly which changes belong in each commit.
+  - title: Commits, Branches and HEAD
+    image: branch_merge.png
+    image_position: right
+    image_alt: "Diagram: two branches diverge from main and merge back"
+    sections:
+    - heading: Core concepts
+      bullets:
+      - Commit — the building block of history
+      - Branch — a lightweight, movable pointer to a commit
+      - Tag — a fixed pointer to a commit, used for releases
+      - HEAD — your current position in the repository
+    - heading: Basic operations
+      bullets:
+      - init, add, commit and log
+      - Branching creates a new line of work; merging brings it back together
+  - title: Why GIT's Design Matters for Data Teams
+    sections:
+    - heading: What you get
+      bullets:
+      - Data integrity — checksums protect history
+      - Distributed reliability — every clone is a full backup
+      - Speed — local operations
+      - Safe experimentation — cheap branches
+      - Complete history of every change
+    callout: Everyone's laptop is a full copy of the project history.
+
+# ---------------------------------------------------------------------------------------------------
+- number: 3
+  title: Branching and Sync Operations
+  duration: 45 minutes
+  time: "10:15 - 11:00"
+  file: Training/03_Session_3_Branching_and_Sync_Operations.md
+  focus: Collaboration workflows
+  your_area:
+    heading: "Add your .gitignore and share it"
+    minutes: 5
+    steps:
+    - "Copy participants/_template/.gitignore into your folder and add one pattern of your own, for example *.log"
+    - "Create notes.csv and check that git status does not list it"
+    - "Commit, then push your branch (Codespaces signs you in for you)"
+    - "Open a draft pull request into main (do not merge yet)"
+    checkpoint: "README.md and .gitignore on your pushed branch, with an open draft pull request"
+  slides:
+  - title: Branches and the Three-Stage Workflow
+    sections:
+    - heading: Branches
+      bullets:
+      - A branch is a safe draft — changes don't affect anyone until merged
+      - Short-lived branches for focused pieces of analytics work
+    - heading: Working directory → staging area → commit
+      bullets:
+      - Stage only the files that belong together
+      - Commit small, logical changes (atomic commits)
+      - Write messages that say what changed and why, linked to an issue
+  - title: Remotes — Clone, Fork, Push, Pull and Fetch
+    image: sync_flow.png
+    image_position: right
+    image_alt: "Diagram: clone, fetch, pull and push between your computer and GitHub"
+    sections:
+    - heading: Getting the code
+      bullets:
+      - Origin — the default name for the shared repository on GitHub
+      - Clone — for team members
+      - Fork — for external contributors
+    - heading: Keeping in sync
+      bullets:
+      - Push — send your commits to GitHub
+      - Pull — bring in colleagues' changes
+      - Fetch — download changes without merging, so you can look first
+    note: Your Codespace signs you in to GitHub, so syncing is just pull and push. More on the daily workflow in Session 5.
+  - title: ".gitignore — Keeping Data Out"
+    sections:
+    - heading: Always exclude
+      bullets:
+      - Patient and sensitive data files
+      - Credentials and connection files
+      - Query result exports and local databases
+      - Notebook checkpoints, Python caches and virtual environments
+    - heading: Make it a habit
+      bullets:
+      - Create .gitignore at the repository root on day one
+      - Start from the team template and add project-specific exclusions
+    callout: Never commit patient data.
+  - title: Pull Requests and Review
+    sections:
+    - heading: The pull request workflow
+      bullets:
+      - Create branch → develop → open PR → automated checks → review → address feedback → approve and merge
+    - heading: What reviewers check
+      bullets:
+      - SQL — inclusion and exclusion criteria, date logic, aggregations, performance
+      - Python — documented functions, error handling, stated assumptions, reproducible
+      - Downstream impact on reports and dashboards
+  - title: Conflicts and Rebasing
+    image: conflict.png
+    image_position: right
+    image_alt: "Diagram: two edits to the same line create a conflict, resolved in four steps"
+    sections:
+    - heading: Why conflicts happen
+      bullets:
+      - Two people change the same lines of the same file
+      - Notebooks conflict easily — JSON, metadata and outputs
+    - heading: Resolving safely
+      bullets:
+      - Pull often to prevent them
+      - Edit the conflict markers, test the query, validate the results, then commit
+      - Rebase to update your branch with the latest main
+  - title: Protected Branches and Branching Strategy
+    sections:
+    - heading: Protect main
+      bullets:
+      - Pull request and review required before merging
+      - Status checks must pass
+      - No direct pushes and no force pushes
+    - heading: Keep it simple
+      bullets:
+      - Simplified Git flow — main plus short-lived feature, bugfix and hotfix branches
+      - Smaller pull requests get faster, better reviews
+    callout: No data is stored in GitHub — code only.
+
+# ---------------------------------------------------------------------------------------------------
+- number: 4
+  title: GitHub Cloud Interface
+  duration: 30 minutes
+  time: "11:00 - 11:30"
+  file: Training/04_Session_4_GitHub_Cloud_Interface.md
+  focus: Web interface mastery
+  your_area:
+    heading: "See your work in the browser"
+    minutes: 3
+    steps:
+    - "Open your branch and your folder on github.com"
+    - "Find your commits and read the diff"
+    - "Use the web editor to add a link to your pull request in your README, committing to your branch"
+    checkpoint: "README.md updated from the browser, with a link to your pull request"
+  slides:
+  - title: Finding Your Way Around a Repository
+    image: repo_mock.png
+    image_position: right
+    image_alt: "Illustration of a repository page with its tabs: Code, Issues, Pull requests, Actions, Projects, Security, Insights"
+    sections:
+    - heading: The main tabs
+      bullets:
+      - Code — browse SQL, notebooks and documentation
+      - Issues — data requests, bugs and tasks
+      - Pull requests — review changes before merging
+      - Actions — automated workflows and checks
+      - Projects — boards for planning and tracking
+      - Insights — contributor and activity statistics
+  - title: Commits, Branches and Diffs
+    sections:
+    - heading: Understanding change
+      bullets:
+      - Commit history — who changed what, when and why
+      - Branches view — see and manage lines of work
+      - Diffs — exactly what changed in a file or pull request
+      - Blame — who last changed each line
+    callout: Check a file's history before changing it.
+  - title: Search and Navigation
+    sections:
+    - heading: Finding things fast
+      bullets:
+      - Repository search — code, issues, pull requests and commits
+      - Global search across GitHub
+      - File finder — press t inside a repository
+    - heading: Good daily habits
+      bullets:
+      - Check notifications for reviews and failed runs
+      - Review diffs carefully in pull requests
+      - Search for similar code before writing something new
+  - title: "Exercise: Repository Exploration"
+    sections:
+    - heading: Steps
+      bullets:
+      - Clone the training repository and look at recent commits and pull requests
+      - Create a branch named feature/yourname-exploration
+      - Add a useful document or code snippet, then commit and push
+      - Open a pull request and assign reviewers
+    note: Tick off each step on the checklist in the Session 4 notes.
+
+# ---------------------------------------------------------------------------------------------------
+- number: 5
+  title: Codespaces Workspace and File Management
+  duration: 30 minutes
+  time: "12:15 - 12:45"
+  file: Training/05_Session_5_Codespaces_Workspace_and_File_Management.md
+  focus: Codespaces as your daily workspace, and large files
+  your_area:
+    heading: "Add notes from your Codespace"
+    minutes: 4
+    steps:
+    - "Reopen your Codespace on your branch and run git pull to pick up the web edit"
+    - "Copy Participant_Pack/04_My_Notes_Template.md into your folder as notes.md and fill in Sessions 1 to 5"
+    - "Create data.csv with five made-up rows and check the Source Control view does not list it"
+    - "Commit and push"
+    checkpoint: "notes.md added; data.csv is ignored and never appears as a change"
+  slides:
+  - title: Codespaces as Your Daily Workspace
+    sections:
+    - heading: Why Codespaces first
+      bullets:
+      - Nothing to install, so it works on locked-down NHS machines
+      - Everyone gets the same Python tools and settings
+      - Git is already signed in to your account
+      - Your work stays on your branch in GitHub
+    - heading: A daily rhythm
+      bullets:
+      - Open your Codespace on your own branch and pull the latest main
+      - Make small changes and commit often
+      - Push before you finish, then stop the Codespace
+    note: Synthetic data only. A Codespace runs outside the Secure Data Environment.
+  - title: GitHub Desktop (Optional)
+    sections:
+    - heading: A visual alternative
+      bullets:
+      - A point-and-click way to clone, branch, commit and sync
+      - Useful if you prefer it or work on a local machine
+    - heading: Why we start with Codespaces
+      bullets:
+      - Fewer installs and sign-in problems on training day
+      - The same Git skills apply in both tools
+  - title: Large Files and Git LFS
+    image: lfs.png
+    image_position: right
+    image_alt: "Diagram: Git stores a small pointer file while LFS storage holds the large file"
+    sections:
+    - heading: The problem
+      bullets:
+      - GitHub recommends repositories under 1 GB, with a 100 MB limit per file
+      - Datasets, models and reports quickly exceed this
+    - heading: Git LFS
+      bullets:
+      - Keeps small pointers in Git and the real file on a separate server
+      - Use it for reference data and models
+    callout: Never commit patient identifiable information — LFS does not change that.
+  - title: Daily Workflow and Good Habits
+    sections:
+    - heading: A good day in a Codespace
+      bullets:
+      - Pull the latest main at the start of the day
+      - Use focused feature branches
+      - Commit often with descriptive messages
+      - Review the diff in the Source Control view before committing
+      - Push at the end of the day, then stop your Codespace
+    - heading: Managing files
+      bullets:
+      - Clear notebook outputs before committing
+      - Document data sources and dependencies
+
+# ---------------------------------------------------------------------------------------------------
+- number: 6
+  title: VS Code Integration and Notebooks
+  duration: 30 minutes
+  time: "12:45 - 13:15"
+  file: Training/06_Session_6_VS_Code_Integration_and_Notebooks.md
+  focus: Development environment integration
+  your_area:
+    heading: "Add a clean notebook and your SQL"
+    minutes: 7
+    steps:
+    - "Create starter.ipynb with one cell that prints a greeting, run it, then clear all outputs"
+    - "Copy Training/exercises/sql-basics/referrals_basics.sql into your folder as referrals.sql"
+    - "Run the queries in the BigQuery console, then change one and run it again"
+    - "Commit and push both files from the Source Control view"
+    checkpoint: "starter.ipynb with outputs cleared, and referrals.sql, committed and pushed"
+  slides:
+  - title: Why VS Code + GitHub
+    sections:
+    - heading: One window for everything
+      bullets:
+      - Code, issues and pull requests side by side
+      - Integrated terminal and linting
+      - Commits and reviews captured alongside the code
+      - Easier to enforce team standards
+    - heading: Essential extensions
+      bullets:
+      - GitHub Pull Requests and Issues
+      - Python and Jupyter
+      - GitHub Copilot, if licensed
+  - title: Quick Start Workflow
+    sections:
+    - heading: From clone to merge
+      bullets:
+      - Clone the repository and create a feature branch
+      - Make small changes, then stage and commit with a message referencing the issue
+      - Sync changes (or publish the branch the first time)
+      - Open the pull request from the GitHub Pull Requests view
+      - Address review comments, merge, then pull the latest main
+  - title: Notebook Hygiene and Security Checks
+    sections:
+    - heading: Notebooks
+      bullets:
+      - Clear outputs before you commit
+      - Keep paths in environment variables, not code
+      - Move reusable logic into .py modules
+    - heading: Top security checks
+      bullets:
+      - No identifiable patient data pushed
+      - Secrets in environment variables or GitHub secrets — never in code
+      - Branch protection with required reviews
+      - Keep dependencies updated
+  - title: Running SQL Against the Academy Dataset
+    sections:
+    - heading: The ndr-hb-abuhb-academy project
+      bullets:
+      - A Google Cloud project for training, with a SQL_Basic_Training dataset
+      - Your SQL lives in Git as a file, so every change is tracked and reviewed
+    - heading: Three habits from the script
+      bullets:
+      - Preview with SELECT * and always add LIMIT
+      - Name only the columns you need
+      - Use SELECT DISTINCT for a unique list of values
+    note: BigQuery needs backticks round a table name with hyphens. Never commit results or data.
+  - title: Codespaces vs Local
+    sections:
+    - heading: Prefer a Codespace when
+      bullets:
+      - Onboarding new joiners
+      - Reviewing with identical tooling
+      - You want least-privilege, scoped secrets
+    - heading: Prefer local when
+      bullets:
+      - Working with heavy compute or large datasets
+      - The network is unreliable
+    note: We try Codespaces hands-on in Session 8.
+
+# ---------------------------------------------------------------------------------------------------
+- number: 7
+  title: Issues, Projects and Discussions
+  duration: 35 minutes
+  time: "13:15 - 13:50"
+  file: Training/07_Session_7_Issues_Projects_and_Discussions.md
+  focus: Project management features
+  your_area:
+    heading: "Raise an issue and pin your tools"
+    minutes: 5
+    steps:
+    - "Open an issue titled Area: <your-folder> with a checklist of what you have added"
+    - "Add requirements.txt listing pandas and matplotlib with the versions you choose"
+    - "Link the issue from your pull request by writing Closes #<issue number>"
+    - "Open the Security tab and note which alert types are switched on"
+    checkpoint: "requirements.txt added; your pull request linked to your issue"
+  slides:
+  - title: GitHub Issues
+    sections:
+    - heading: The team's to-do list
+      bullets:
+      - Track bugs, feature requests, data issues and project tasks
+      - Assign owners, add labels and set milestones
+      - "Link to code: writing \"closes #12\" in a commit closes the issue on merge"
+    - heading: Effective issues
+      bullets:
+      - Use templates — clinical context, description, acceptance criteria
+      - Make the definition of done clear
+  - title: The Issue Lifecycle
+    image: lifecycle.png
+    image_position: bottom
+    image_alt: "Flow: issue, branch, commits, pull request, review, merge, issue closed"
+    sections:
+    - heading: From request to closure
+      bullets:
+      - Create and triage — categorise and assign
+      - Investigate and plan — feasibility, data sources, governance review
+      - Develop — feature branch linked to the issue, with review
+      - Validate and deploy — stakeholder testing and data quality checks
+      - Close — acceptance, documentation and lessons learned
+  - title: "GitHub Projects: A Lightweight Board"
+    image: kanban.png
+    image_position: right
+    image_alt: "Illustration of a Kanban board with To do, In progress and Done columns"
+    sections:
+    - heading: Five-minute setup
+      bullets:
+      - "Columns: Backlog, In Progress, Review, Blocked, Done"
+      - "Fields: priority, target date and owner"
+      - Keep labels to about 12 in total
+    - heading: Simple automation
+      bullets:
+      - New labelled issues go to Backlog
+      - A merged pull request moves its issue to Done
+  - title: GitHub Actions for Automation
+    sections:
+    - heading: What can be automated
+      bullets:
+      - Data quality and freshness checks
+      - Scheduled monthly or quarterly reports
+      - Unit tests for calculations
+      - Notifications to Teams or email
+    note: Actions are workflow files stored in the repository, so automation is reviewed like any other code.
+  - title: "GitHub Advanced Security: What It Is"
+    sections:
+    - heading: Two products, both for private repositories on paid plans
+      bullets:
+      - Secret Protection — secret scanning, push protection and custom patterns
+      - Code Security — code scanning with CodeQL, Copilot Autofix, dependency review
+    - heading: Available on every plan
+      bullets:
+      - Dependency graph, Dependabot alerts and Dependabot updates
+    note: Both products are available to ABUHB private repositories. The GitHub admin team switches them on per repository.
+  - title: How Advanced Security Protects Your Work
+    image: security_pipeline.png
+    image_position: right
+    image_alt: "Diagram: security checks when you write, push, open a pull request and after merge"
+    sections:
+    - heading: At each step
+      bullets:
+      - Push protection stops a secret before it reaches GitHub
+      - Code scanning and dependency review check every pull request
+      - Secret scanning and Dependabot keep watching after merge
+    - heading: Why it matters to us
+      bullets:
+      - A pushed secret is exposed, so revoke it first
+      - It helps keep credentials and patient data out of code
+  - title: Reading and Acting on Security Alerts
+    sections:
+    - heading: Where to look
+      bullets:
+      - The Security tab of the repository lists every alert, with severity
+      - Pull request checks show new problems before they merge
+    - heading: What to do
+      bullets:
+      - Secret alert — revoke the secret, tell the admin team, then clean up
+      - Code alert — read the explanation, fix it, or review a Copilot Autofix suggestion
+      - Dependency alert — merge the Dependabot pull request after the tests pass
+      - Dismiss only with a reason that a colleague could check
+    callout: An alert is a prompt to act, not a verdict. A human decides.
+
+# ---------------------------------------------------------------------------------------------------
+- number: 8
+  title: Codespaces and Copilot Hands-On
+  duration: 45 minutes
+  time: "13:50 - 14:35"
+  file: Training/08_Session_8_Codespaces_and_Copilot_Exercise.md
+  focus: Codespaces, Copilot and a hands-on build exercise
+  your_area:
+    heading: "Do the exercise in your own folder"
+    minutes: 25
+    steps:
+    - "Open a Codespace on your branch training/<your-folder>"
+    - "Create participants/<your-folder>/dna-analysis and work there"
+    - "Commit at least twice with clear messages"
+    - "Push when you have worked through the review checklist"
+    checkpoint: "dna-analysis with your code, a short README and a note of the Copilot prompts you used"
+  slides:
+  - title: What is a GitHub Codespace?
+    image: codespace_arch.png
+    image_position: right
+    image_alt: "Diagram: a browser connects to a Codespace built from the devcontainer file in the repository"
+    sections:
+    - heading: VS Code in the cloud
+      bullets:
+      - A ready-to-use development environment, opened from a repository in your browser
+      - Python, packages and extensions are installed for you
+      - No local installation — start coding in minutes
+    - heading: Why use one?
+      bullets:
+      - Everyone gets the same environment — no "works on my machine"
+      - Great for onboarding, quick fixes and reviewing pull requests
+      - Your work is committed back to the repository with Git
+  - title: "Codespaces: Launching and Lifecycle"
+    sections:
+    - heading: Launching
+      bullets:
+      - Repository → Code → Codespaces → Create codespace on main
+      - Create a branch before you change anything
+      - A 2-core machine is plenty for today
+    - heading: Lifecycle
+      bullets:
+      - Running → Stopped → Deleted
+      - Stop it when you finish — stopped Codespaces don't use compute time
+      - Commit and push first; uncommitted work is lost if a Codespace is deleted
+  - title: "Dev Containers: Same Environment for Everyone"
+    sections:
+    - heading: One file defines the environment
+      bullets:
+      - .devcontainer/devcontainer.json lives in the repository
+      - Sets the Python version, extensions, ports and setup commands
+      - Change the file in a pull request, and everyone gets the new setup
+    - heading: Today's setup
+      bullets:
+      - Python 3.11 with pandas, matplotlib and Streamlit
+      - Copilot and Pull Request extensions pre-installed
+      - Port 8501 forwarded for the Streamlit app
+  - title: What Belongs in a Codespace?
+    sections:
+    - heading: Safe to use
+      bullets:
+      - Code, documentation and notebooks with outputs cleared
+      - Synthetic or fully anonymised sample data
+    - heading: Never use
+      bullets:
+      - Patient-identifiable data, extracts or NHS numbers
+      - Passwords, tokens or keys in files — use Codespaces secrets
+    callout: A Codespace runs in GitHub's cloud, outside the Secure Data Environment. Real data stays in the SDE.
+  - title: "GitHub Copilot: Suggest, Chat and Slash Commands"
+    sections:
+    - heading: Inline suggestions
+      bullets:
+      - Write a comment or function name — Copilot suggests the code
+      - Press Tab to accept, Esc to dismiss
+    - heading: Copilot Chat
+      bullets:
+      - Ask questions about your code, data or errors
+      - /explain, /fix, /tests and /doc for common jobs
+      - Shared repository instructions keep answers consistent (.github/copilot-instructions.md)
+  - title: Prompting and Reviewing Copilot
+    sections:
+    - heading: Get better answers
+      bullets:
+      - Give context — the columns, the metric definition, the output you want
+      - Work in small steps and iterate
+      - Ask Copilot to explain code you don't understand
+    - heading: You are the reviewer
+      bullets:
+      - Never accept code you can't explain — Copilot can be confidently wrong
+      - Check definitions, totals and invented functions, then test
+      - No patient data or secrets in prompts
+  - title: "Exercise: Choose Your Track"
+    sections:
+    - heading: The scenario
+      bullets:
+      - Which clinics and patient groups have the highest DNA (did not attend) rates, and is it changing through the year?
+      - Synthetic outpatient dataset — 3,000 appointments
+    - heading: Pick one
+      bullets:
+      - Track A — Analysis. Python script that checks the data, calculates DNA rates and saves a chart
+      - Track B — UI. A Streamlit app with filters, headline numbers and charts
+    note: DNA rate = DNA ÷ (Attended + DNA). Cancelled appointments are excluded.
+  - title: "Exercise: Build with Copilot (25 minutes)"
+    sections:
+    - heading: Steps
+      bullets:
+      - Open a Codespace and create your own branch
+      - Ask Copilot to explain the data columns
+      - Build your track in small steps, reading every suggestion
+      - Run it — python for Track A, streamlit run for Track B
+      - Commit, push and open a pull request for a neighbour to review
+      - Stop your Codespace
+    note: "Full guide: Training/exercises/codespaces-copilot/README.md"
+  - title: "Exercise: Review and Share Back"
+    sections:
+    - heading: Check Copilot's work
+      bullets:
+      - Does the DNA rate exclude cancelled appointments?
+      - Do the totals add up to 3,000 appointments?
+      - Any invented columns or functions? Does it run?
+      - Could you explain every line to a colleague?
+    - heading: Share back
+      bullets:
+      - Track chosen, and one thing Copilot did well
+      - One thing Copilot got wrong or you had to fix
+      - Would you use this at work?
+  - title: How This Fits with the Secure Data Environment
+    image: sde_fit.png
+    image_position: right
+    image_alt: "Diagram: code moves from GitHub to the Secure Data Environment; real data never leaves it"
+    sections:
+    - heading: Two places, two jobs
+      bullets:
+      - GitHub and Codespaces — code, documentation and synthetic data
+      - Secure Data Environment on GCP — real data, queries and notebooks
+    - heading: The path to real data
+      bullets:
+      - Develop and test with Copilot on synthetic data in a Codespace
+      - Review through a pull request and merge to main
+      - Run the reviewed code inside the SDE, against real data
+    callout: Code moves to the data. Data never moves to the code.
+
+# ---------------------------------------------------------------------------------------------------
+- number: 9
+  title: Group Exercises and Consolidation
+  duration: 25 minutes
+  time: "14:35 - 15:00"
+  file: Training/09_Session_9_Group_Exercises_and_Consolidation.md
+  focus: Skills validation and practice
+  your_area:
+    heading: "Merge your area"
+    minutes: 15
+    steps:
+    - "Update your pull request description with a summary of what your area contains"
+    - "Review a partner's pull request with the checklist and leave one useful comment"
+    - "Resolve any conflicts and merge once approved"
+    - "Check that your row in the participants README matches what you built"
+    checkpoint: "Everything merged into main: a complete record of your day's work"
+  slides:
+  - title: What We've Covered Today
+    sections:
+    - heading: Foundations
+      bullets:
+      - Why GitHub, and how GIT works
+      - Branching, pull requests and conflict resolution
+      - The web interface, GitHub Desktop and VS Code
+    - heading: Collaboration and tools
+      bullets:
+      - Issues, Projects and Actions
+      - Codespaces and Copilot
+  - title: "Group Exercise: Issue to Merge"
+    sections:
+    - heading: In groups of three or four
+      bullets:
+      - Choose ONE small scenario — a README checklist, a typo fix or a SQL snippet in the docs
+      - Create an issue using the template
+      - Create a feature branch and make a small change that references the issue
+      - Open a pull request — a teammate reviews with one comment and approves
+      - Merge and check the issue closes
+    note: Use the provided training repository. No new repositories are needed.
+  - title: Share Back
+    sections:
+    - heading: Each team tells us
+      bullets:
+      - Which scenario you chose
+      - How long it took from issue to merge
+      - One friction point
+      - One suggested improvement
+  - title: Next Steps
+    sections:
+    - heading: In the next week
+      bullets:
+      - Make sure your GitHub account and organisation access are set up
+      - Explore repositories relevant to your work
+    - heading: In the next month
+      bullets:
+      - Practise the basic workflow regularly
+      - Use GitHub for at least one real work project
+      - Find a colleague to learn with

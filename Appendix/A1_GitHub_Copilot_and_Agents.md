@@ -1,7 +1,8 @@
-# Session 7: Using GitHub Copilot and Agents
+# Appendix A1: Using GitHub Copilot and Agents
 
-**Duration**: 30 minutes  
-**Time**: 13:15 - 13:45
+**Duration**: 30 minutes (self-directed)
+
+> The hands-on Copilot exercise is in [Session 8](../Training/08_Session_8_Codespaces_and_Copilot_Exercise.md). This appendix goes deeper on Copilot Chat, Workspace and agents.
 
 ## 🎯 Learning Objectives
 
@@ -1142,7 +1143,7 @@ Throughout this training day, you've explored:
 
 **Thank you for attending!**
 
-*Session 7 of 7 | GitHub Training Package*  
+*Appendix A1 | GitHub Training Package*  
 *Aneurin Bevan University Health Board*
 
 ---

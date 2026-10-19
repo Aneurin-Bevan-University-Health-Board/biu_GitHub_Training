@@ -2,10 +2,10 @@
 
 ---
 
-# Session 8: Group Exercises and Consolidation
+# Session 9: Group Exercises and Consolidation
 
-**Duration**: 30 minutes  
-**Time**: 14:30 - 15:00
+**Duration**: 25 minutes  
+**Time**: 14:35 - 15:00
 
 ## 🎯 Learning Objectives
 
@@ -21,76 +21,78 @@ By the end of this session, you will have:
 
 ### What We've Covered Today
 
-#### Session 1: Introduction and Why GitHub
+#### Session 1: Why GitHub for Data Teams
 - ✅ What GitHub is and its core benefits
 - ✅ Version control fundamentals
 - ✅ NHS Wales GitHub GIG Cymru vision
 
-#### Session 2: Branching and Sync Operations  
+#### Session 2: Introduction to GIT
+- ✅ GIT vs GitHub
+- ✅ The object model and three-tree architecture
+- ✅ Commits, branches and HEAD
+
+#### Session 3: Branching and Sync Operations
 - ✅ Creating and managing branches
 - ✅ Pull requests and code review
 - ✅ Resolving conflicts safely
 
-#### Session 3: GitHub Web Interface
+#### Session 4: GitHub Cloud Interface
 - ✅ Navigating repositories effectively
 - ✅ Searching for code and information
 - ✅ Understanding file history and changes
 
-#### Session 4: GitHub Desktop
+#### Session 5: Codespaces Workspace and File Management
 - ✅ Visual Git operations
 - ✅ Managing large files with Git LFS
-- ✅ Local workflow optimization
+- ✅ Local workflow optimisation
 
-#### Session 5: VS Code Integration
+#### Session 6: VS Code Integration and Notebooks
 - ✅ Development environment setup
 - ✅ Notebook version control best practices
 - ✅ Collaborative coding features
 
-#### Session 6: Project Management
+#### Session 7: Issues, Projects and Discussions
 - ✅ Issues for task tracking
-- ✅ Project boards for organization
-- ✅ Team discussions and documentation
+- ✅ Project boards for organisation
+- ✅ Actions for automation
+
+#### Session 8: Codespaces and Copilot Hands-On
+- ✅ Codespaces and dev containers
+- ✅ What belongs in a Codespace (and what stays in the SDE)
+- ✅ Building with Copilot - and reviewing its output
 
 ---
 
-## 🤝 Group Exercise: Collaborative Workflow (No Repo Creation Rights)
+## 🤝 Group Exercise: Merge Your Area
 
-### Team Setup (3 minutes)
+All day you have been building your own area, `participants/<your-folder>/`, on your own branch `training/<your-folder>`. In this session you bring it together with your group.
 
-Form groups of 3–4 (mixed roles & sites). Pick a timekeeper.
+### Team Setup (2 minutes)
 
-### Provided Training Repository
+Form pairs or groups of three. Each person reviews the pull request of the next person in the group.
 
-Use the pre-provisioned repository: `biu_team` (already created with starter content). No new repos are required.
-
-### Exercise: End-to-End Issue & Branch Flow (15 minutes total)
+### Exercise: Review and Merge (18 minutes)
 
 ```text
-Goal: Practice creating a structured issue, branching, making a change, PR review, and closure using existing repo.
+Goal: Practise the full flow with work of your own: pull request, review, conflict, merge, closed issue.
 ```
 
-Steps:
-
-1. Choose ONE scenario (not all):
-   - Add a README section documenting a data quality checklist
-   - Fix a typo in an existing markdown file
-   - Add a simple SQL snippet example in docs (`SELECT COUNT(*) FROM table;`)
-2. Create an Issue using the template (fill only essential fields: context, definition of done, acceptance criteria)
-3. Create a feature branch (name: `feature/short-goal`)
-4. Make minimal change (≤10 lines) and commit referencing the issue (e.g. `git commit -m "Add data quality checklist (closes #12)"`)
-5. Open Pull Request; add 1 reviewer from your group
-6. Reviewer leaves 1 constructive comment and approves
-7. Merge PR (squash if available) and confirm Issue auto-closes
-8. Reflect: Was anything unclear? Capture one improvement suggestion.
+1. Open your pull request from `training/<your-folder>` into `main` and mark it **Ready for review**.
+2. Update the description with a short summary of what your area contains, and `Closes #<your issue number>` (from Session 7).
+3. Review your partner's pull request using the checklist: only their folder changed, no data files, no secrets, `.gitignore` present, notebook outputs cleared.
+4. Leave **one useful comment** and approve.
+5. **Conflict drill:** everyone adds a line to `participants/shared-notes.md` on their own branch. Merge the first pull request, then update the next branch with `main` and resolve the conflict using what you learned in Session 3.
+6. Merge your pull request and confirm your issue closes automatically.
+7. Check that your area matches the checkpoint table in `participants/README.md`.
 
 ### Share Back (5 minutes)
 
-Each team answers briefly:
+Each group answers briefly:
 
 | Item | Answer |
 |------|--------|
-| Scenario chosen | `scenario` |
-| Time from issue → merge | `X minutes` |
+| Which checkpoint was hardest | `scenario` |
+| Time from first commit to merge | `X minutes` |
 | One friction point | `brief description` |
 | Suggested improvement | `brief fix` |
 
@@ -164,8 +166,6 @@ You've completed the ABUHB GitHub GIG Cymru one-day training. You now have the f
 
 NHS Wales BIU | Business Intelligence Unit
 
-```text
-
 ## 🎯 Skills Assessment and Competency Validation
 
 ### Individual Skill Assessments
@@ -203,7 +203,7 @@ Assessment 4: Healthcare-Specific Applications
 
 
 
-## 🎯 Session 7 Wrap-Up
+## 🎯 Session 9 Wrap-Up
 
 ### Key Accomplishments
 
@@ -265,6 +265,79 @@ You have completed the **GitHub GIG Cymru Training Series** for NHS Wales analyt
 
 ---
 
-*Session 8 of 8 | GitHub Training Series for Analytics and Data Teams*  
+<!-- SLIDES:BEGIN - generated by Training/slides/build_deck.py from slides/deck_content.yaml. Do not edit by hand. -->
+## 🖥️ Slide Deck Content
+
+These are the slides for this session: **slides 70–75** of [`GitHub_Training_Day.pptx`](GitHub_Training_Day.pptx). They are generated from [`slides/deck_content.yaml`](slides/deck_content.yaml), so the deck and this page always match. The sections above give the full detail behind each slide.
+
+### Slide 70: Section divider
+
+**Group Exercises and Consolidation** — Session 9 | 25 minutes
+
+### Slide 71: What We've Covered Today
+
+**Foundations**
+
+- Why GitHub, and how GIT works
+- Branching, pull requests and conflict resolution
+- The web interface, GitHub Desktop and VS Code
+
+**Collaboration and tools**
+
+- Issues, Projects and Actions
+- Codespaces and Copilot
+
+### Slide 72: Group Exercise: Issue to Merge
+
+**In groups of three or four**
+
+- Choose ONE small scenario — a README checklist, a typo fix or a SQL snippet in the docs
+- Create an issue using the template
+- Create a feature branch and make a small change that references the issue
+- Open a pull request — a teammate reviews with one comment and approves
+- Merge and check the issue closes
+
+> Use the provided training repository. No new repositories are needed.
+
+### Slide 73: Share Back
+
+**Each team tells us**
+
+- Which scenario you chose
+- How long it took from issue to merge
+- One friction point
+- One suggested improvement
+
+### Slide 74: Next Steps
+
+**In the next week**
+
+- Make sure your GitHub account and organisation access are set up
+- Explore repositories relevant to your work
+
+**In the next month**
+
+- Practise the basic workflow regularly
+- Use GitHub for at least one real work project
+- Find a colleague to learn with
+
+### Slide 75: Your Area: Checkpoint 9
+
+**Merge your area (15 minutes)**
+
+- Update your pull request description with a summary of what your area contains
+- Review a partner's pull request with the checklist and leave one useful comment
+- Resolve any conflicts and merge once approved
+- Check that your row in the participants README matches what you built
+
+**Your folder now contains**
+
+- Everything merged into main: a complete record of your day's work
+
+<!-- SLIDES:END -->
+
+---
+
+*Session 9 of 9 | GitHub Training Series for Analytics and Data Teams*  
 *Developed by ABUHB Business Intelligence Team*  
 *Training Complete - Ready for Real-World Application*

@@ -1,7 +1,6 @@
-# Session 4: GitHub with GCP Context
+# Appendix A5: GitHub with GCP Context
 
-**Duration**: 30 minutes  
-**Time**: 10:45 - 11:15
+**Duration**: 30 minutes (self-directed)
 
 ## 🎯 Learning Objectives
 
@@ -22,7 +21,6 @@ The Aneurin Bevan University Health Board uses both GitHub and GCP extensively. 
 
 - **Automated Deployments**: Code changes automatically deploy to cloud infrastructure
 - **Continuous Integration**: Automated testing in cloud environments
-- **Infrastructure as Code**: Manage GCP resources via GitHub repositories
 - **Secure Pipelines**: Managed secrets and workload identity
 - **Scalable Builds**: Leverage GCP's compute power for builds
 
@@ -431,101 +429,6 @@ Store sensitive configuration in **Secret Manager**, not in code or GitHub Secre
 
 ---
 
-## Infrastructure as Code
-
-### Terraform with GitHub
-
-Manage GCP infrastructure using **Terraform** stored in GitHub.
-
-#### Repository Structure
-```
-biu_infrastructure/
-├── .github/
-│   └── workflows/
-│       ├── terraform-plan.yml
-│       └── terraform-apply.yml
-├── environments/
-│   ├── dev/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   └── terraform.tfvars
-│   ├── staging/
-│   └── production/
-└── modules/
-    ├── bigquery/
-    ├── cloud-run/
-    └── gke/
-```
-
-#### Terraform Plan Workflow
-```yaml
-name: Terraform Plan
-
-on:
-  pull_request:
-    branches: [main]
-
-jobs:
-  plan:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-      
-      - name: Authenticate to GCP
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
-      
-      - name: Terraform Init
-        run: terraform init
-        working-directory: environments/production
-      
-      - name: Terraform Plan
-        run: terraform plan -no-color
-        working-directory: environments/production
-```
-
-#### Terraform Apply Workflow
-```yaml
-name: Terraform Apply
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  apply:
-    runs-on: ubuntu-latest
-    environment: production  # Requires approval
-    
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-      
-      - name: Authenticate to GCP
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
-          service_account: ${{ secrets.SERVICE_ACCOUNT }}
-      
-      - name: Terraform Init
-        run: terraform init
-        working-directory: environments/production
-      
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-        working-directory: environments/production
-```
-
----
-
 ## ABB Use Cases
 
 ### 1. Business Intelligence Dashboard Deployment
@@ -843,7 +746,6 @@ Error: Build exceeded timeout
 ✅ **Workload Identity** enables secure, keyless authentication  
 ✅ **Cloud Build** can be triggered directly from GitHub  
 ✅ **Multiple GCP services** integrate seamlessly with GitHub  
-✅ **Infrastructure as Code** can be managed through GitHub  
 ✅ **ABB leverages** GitHub + GCP for modern cloud development
 
 ### ABB Integration Status
@@ -853,11 +755,10 @@ Error: Build exceeded timeout
 | **Analytics Dashboards** | Cloud Run | ✅ Active |
 | **ETL Pipelines** | Cloud Composer | ✅ Active |
 | **Data Schemas** | BigQuery | ✅ Active |
-| **Infrastructure** | Terraform + GCP | ✅ Active |
 
 ### Next Session Preview
 
-In **Session 5: GitHub Components**, we'll explore:
+In **Appendix A6: GitHub Components**, we'll explore:
 - Repositories structure and management
 - Issues and project tracking
 - Pull requests workflow
@@ -871,10 +772,9 @@ In **Session 5: GitHub Components**, we'll explore:
 - [GitHub Actions for GCP](https://github.com/google-github-actions)
 - [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation)
 - [Cloud Build with GitHub](https://cloud.google.com/build/docs/automating-builds/github/build-repos-from-github)
-- [Terraform on GCP](https://cloud.google.com/docs/terraform)
 - [GCP Best Practices](https://cloud.google.com/architecture/framework)
 
 ---
 
-*Session 4 of 7 | GitHub Training Package*  
+*Appendix A5 | GitHub Training Package*  
 *Aneurin Bevan University Health Board*
