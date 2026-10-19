@@ -1,7 +1,7 @@
 # Exercise: Run SQL Against the Academy Dataset
 
-**Used in:** [Session 6: VS Code Integration and Notebooks](../../06_Session_6_VS_Code_Integration_and_Notebooks.md)
-**Time:** about 6 minutes, as part of your Your Area checkpoint
+**Used in:** the **optional** extension at the end of [Session 9](../../09_Session_9_Group_Exercises_and_Consolidation.md), or afterwards
+**Time:** about 10 minutes
 **You need:** access to the Google Cloud project `ndr-hb-abuhb-academy` (see [Setup and Access](../../00_Setup_and_Access.md))
 
 > Only run queries against the academy project. Always use `LIMIT` while you explore. Do not copy query results into GitHub.

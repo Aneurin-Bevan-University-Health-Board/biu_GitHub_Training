@@ -6,7 +6,7 @@ Everything you need for the day, in one place. Open these files in your Codespac
 |---|------|------------|-----------------|
 | 1 | [01_Crib_Sheet.md](01_Crib_Sheet.md) | One-page quick reference: Git, Codespaces, GitHub web, Copilot, SQL | All day |
 | 2 | [02_Getting_Started_Checklist.md](02_Getting_Started_Checklist.md) | Tick-box list: before the day, on the day, before you leave | Before the day |
-| 3 | [demos/](demos/README.md) | Python and SQL demos you can run and change | Sessions 6 and 8 |
+| 3 | [demos/](demos/README.md) | Python demos (and optional SQL demos) you can run and change | Sessions 6 and 8; SQL at the end of the day |
 | 4 | [04_My_Notes_Template.md](04_My_Notes_Template.md) | A notes section for every session; copy it into your own folder as `notes.md` | Session 5 onwards |
 | 5 | [agents/](agents/README.md) | A Copilot custom agent: a senior Python analyst to help with the demos | Sessions 6 and 8 |
 

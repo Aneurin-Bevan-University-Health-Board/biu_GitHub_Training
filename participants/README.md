@@ -20,7 +20,7 @@ participants/<your-folder>/
 ├── .gitignore             # your own ignore rules (Session 3)
 ├── notes.md               # added in your Codespace (Session 5)
 ├── starter.ipynb          # a clean notebook (Session 6)
-├── referrals.sql          # your SQL for the academy dataset (Session 6)
+├── referrals.sql          # optional: your SQL for the academy dataset (end of Session 9)
 ├── requirements.txt       # pinned dependencies (Session 7)
 └── dna-analysis/          # the Copilot exercise (Session 8)
 ```
@@ -35,7 +35,7 @@ participants/<your-folder>/
 | **3** | Branching and Sync Operations | Add your .gitignore and share it | README.md and .gitignore on your pushed branch, with an open draft pull request |
 | **4** | GitHub Cloud Interface | See your work in the browser | README.md updated from the browser, with a link to your pull request |
 | **5** | Codespaces Workspace and File Management | Add notes from your Codespace | notes.md added; data.csv is ignored and never appears as a change |
-| **6** | VS Code Integration and Notebooks | Add a clean notebook and your SQL | starter.ipynb with outputs cleared, and referrals.sql, committed and pushed |
+| **6** | VS Code Integration and Notebooks | Add a clean notebook | starter.ipynb committed with its outputs cleared |
 | **7** | Issues, Projects and Discussions | Raise an issue and pin your tools | requirements.txt added; your pull request linked to your issue |
 | **8** | Codespaces and Copilot Hands-On | Do the exercise in your own folder | dna-analysis with your code, a short README and a note of the Copilot prompts you used |
 | **9** | Group Exercises and Consolidation | Merge your area | Everything merged into main: a complete record of your day's work |

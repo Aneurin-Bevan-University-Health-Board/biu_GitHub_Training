@@ -66,7 +66,7 @@ Title says the problem. Body has context, definition of done and acceptance crit
 - Code scanning and dependency review check pull requests.
 - **If a secret is ever pushed: revoke it first**, tell the admin team, then clean up. Deleting the line is not enough.
 
-## SQL basics (BigQuery)
+## SQL basics (BigQuery, optional)
 
 | Idea | Example |
 |------|---------|

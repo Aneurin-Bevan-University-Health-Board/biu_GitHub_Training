@@ -70,7 +70,7 @@ Everything participants need is in [Participant_Pack/](Participant_Pack/README.m
 - Basic understanding of data analysis or healthcare analytics
 - Computer with internet access
 - A GitHub account that is a member of the ABUHB organisation. The training uses **GitHub Enterprise Cloud**, not GitHub Free, so a personal free account is not sufficient on its own
-- Setup completed in advance: see [Setup and Access](Training/00_Setup_and_Access.md), including opening a Codespace, access to the ndr-hb-abuhb-academy Google Cloud project, and a personal access token if asked
+- Setup completed in advance: see [Setup and Access](Training/00_Setup_and_Access.md), including opening a Codespace (and, optionally, access to the ndr-hb-abuhb-academy Google Cloud project for the SQL extension)
 - (Optional) Git, GitHub Desktop or VS Code on your own computer. The training uses GitHub Codespaces, so nothing needs installing
 
 ### Recommended Learning Path

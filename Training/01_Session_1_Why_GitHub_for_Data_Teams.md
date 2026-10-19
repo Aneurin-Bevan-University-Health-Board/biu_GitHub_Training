@@ -19,11 +19,11 @@ By the end of this session, you will understand:
 
 ## ✅ Before You Start: Setup and Access
 
-Everyone needs to be signed in to GitHub and able to open a Codespace **before** the day, with access to the **ndr-hb-abuhb-academy** Google Cloud project. Follow [Setup and Access](00_Setup_and_Access.md), which has step-by-step instructions for:
+Everyone needs to be signed in to GitHub and able to open a Codespace **before** the day. Follow [Setup and Access](00_Setup_and_Access.md), which has step-by-step instructions for:
 
 - Joining the ABUHB organisation (Azure AD group `ABB_BIU_GitHub_Users`) and completing single sign-on
 - Opening a Codespace, which is the workspace for the whole day (nothing to install; Git, GitHub Desktop and VS Code are optional)
-- Getting access to the ndr-hb-abuhb-academy project through the training Google group
+- Optional: access to the ndr-hb-abuhb-academy Google Cloud project through the training Google group, for the SQL extension at the end of the day
 - Creating, storing, testing and revoking a **fine-grained personal access token**, if your trainer asks for one
 
 If you are not set up, use the first minutes of this session to fix it with the trainer. Contact the GitHub admin team at `ABB.BIU.GitHub.Admin@nhswales365.onmicrosoft.com`.
@@ -426,7 +426,7 @@ These are the slides for this session: **slides 3–14** of [`GitHub_Training_Da
 - A GitHub account that is a member of the ABUHB organisation (Azure AD group ABB_BIU_GitHub_Users)
 - A browser that can open Codespaces (nothing else to install). GitHub Desktop and VS Code are optional
 - Signed in to GitHub, with single sign-on authorised for the organisation
-- Access to the ndr-hb-abuhb-academy Google Cloud project, through your training group
+- Optional: access to the ndr-hb-abuhb-academy Google Cloud project, for the SQL extension at the end of the day
 - A GitHub personal access token, stored safely, if your trainer asks for one
 
 **If something is missing**

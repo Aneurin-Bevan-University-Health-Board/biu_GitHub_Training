@@ -11,11 +11,11 @@ All Python demos use the **synthetic** appointments file `Training/exercises/cod
 | `01_explore_data.py` | Load a CSV, check shape, types, missing values and categories | `python Participant_Pack/demos/python/01_explore_data.py` |
 | `02_chart_demo.py` | Count and chart with pandas and matplotlib; saves to `outputs/` (ignored by Git) | `python Participant_Pack/demos/python/02_chart_demo.py` |
 | `03_streamlit_hello.py` | A tiny Streamlit app with one filter | `streamlit run Participant_Pack/demos/python/03_streamlit_hello.py` |
-| `04_bigquery_referrals.py` | Run a query on the academy project from Python | `python Participant_Pack/demos/python/04_bigquery_referrals.py` (needs Google sign-in, see the file) |
+| `04_bigquery_referrals.py` | **Optional:** run a query on the academy project from Python | `python Participant_Pack/demos/python/04_bigquery_referrals.py` (needs Google sign-in, see the file) |
 
-## SQL (`demos/sql/`)
+## SQL (`demos/sql/`): optional
 
-Run these in the BigQuery console, project `ndr-hb-abuhb-academy`.
+These need access to the optional Google Cloud project `ndr-hb-abuhb-academy`. Do them at the end of the day, or afterwards. Run them in the BigQuery console.
 
 | Script | What it shows |
 |--------|---------------|

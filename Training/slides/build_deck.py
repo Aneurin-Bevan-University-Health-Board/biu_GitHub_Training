@@ -69,7 +69,19 @@ def load_spec() -> dict:
         stripped = line.strip()
         if stripped.startswith("- ") and " #" in stripped and not stripped[2:].lstrip().startswith(('"', "'", "{")):
             raise SystemExit(f"deck_content.yaml line {n}: put quotes around text containing ' #': {stripped}")
-    return yaml.safe_load(text)
+    spec = yaml.safe_load(text)
+    # An unquoted bullet containing ': ' becomes a dict instead of text: catch it with a clear message.
+    for sess in spec["sessions"]:
+        slides = list(sess["slides"])
+        for sl in slides:
+            for sec in sl.get("sections", []):
+                for b in sec["bullets"]:
+                    if not isinstance(b, str):
+                        raise SystemExit(f"Slide '{sl['title']}': a bullet is not text (put quotes round bullets containing ': '): {b}")
+        for b in (sess.get("your_area") or {}).get("steps", []):
+            if not isinstance(b, str):
+                raise SystemExit(f"Session {sess['number']} your_area step is not text: {b}")
+    return spec
 
 
 def agenda_lines(spec: dict) -> list[str]:
@@ -106,7 +118,10 @@ def build_plan(spec: dict) -> list[dict]:
                 "session": s["number"],
             }
         )
-        for sl in s["slides"]:
+        # Slides marked `optional: true` come after the Your Area checkpoint, at the very end of the session.
+        ordered = [sl for sl in s["slides"] if not sl.get("optional")]
+        optional = [sl for sl in s["slides"] if sl.get("optional")]
+        for sl in ordered:
             if sl.get("image"):
                 if not (IMAGES_DIR / sl["image"]).exists():
                     raise SystemExit(f"Slide '{sl['title']}': image {sl['image']} not found in Training/images/")
@@ -117,6 +132,8 @@ def build_plan(spec: dict) -> list[dict]:
             plan.append({"kind": "content", "session": s["number"], **sl})
         if s.get("your_area"):
             plan.append({"kind": "content", "session": s["number"], **your_area_slide(s)})
+        for sl in optional:
+            plan.append({"kind": "content", "session": s["number"], **sl})
     plan.append({"kind": "title", "title": d["closing_title"], "subtitle": d["closing_subtitle"], "session": None})
     for i, item in enumerate(plan, start=1):
         item["number"] = i

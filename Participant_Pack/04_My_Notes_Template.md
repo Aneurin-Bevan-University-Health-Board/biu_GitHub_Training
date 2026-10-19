@@ -29,10 +29,10 @@ Copy this file into your folder as `participants/<your-folder>/notes.md` in Sess
 - When I would use Git LFS, and when never:
 - Question for the trainer:
 
-## Session 6: VS Code, Notebooks and SQL
+## Session 6: VS Code and Notebooks
 - Key idea:
 - A notebook habit I will keep:
-- What `DISTINCT` and `LIMIT` do:
+- Question for the trainer:
 
 ## Session 7: Issues, Projects, Actions and Security
 - Key idea:
@@ -47,6 +47,7 @@ Copy this file into your folder as `participants/<your-folder>/notes.md` in Sess
 ## Session 9: Merge Your Area
 - What was hardest:
 - What I will do differently at work:
+- Optional SQL extension: what `DISTINCT` and `LIMIT` do:
 
 ---
 

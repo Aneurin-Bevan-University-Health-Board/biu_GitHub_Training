@@ -6,7 +6,7 @@
 
 **Time needed**: 30–45 minutes  
 **Who**: Every participant  
-**Goal**: Arrive on the day signed in to GitHub, able to open a Codespace, with access to the **ndr-hb-abuhb-academy** Google Cloud project and a GitHub personal access token (PAT) if your trainer asks for one.
+**Goal**: Arrive on the day signed in to GitHub, able to open a Codespace. Optionally, access to the **ndr-hb-abuhb-academy** Google Cloud project, and a GitHub personal access token (PAT) if your trainer asks for one.
 
 > We use **GitHub Enterprise Cloud** through the ABUHB organisation. This is not the free personal GitHub plan, so some features in this training (protected branches on private repositories, Copilot Business, Codespaces controls, Advanced Security) only work inside the organisation. Do all training work with your organisation account.
 
@@ -26,7 +26,7 @@ A printable version is in the [Participant Pack](../Participant_Pack/02_Getting_
 □ Single sign-on (SSO) works when you open the organisation
 □ Two-factor authentication switched on
 □ Codespaces opens (Section 5): this is your workspace for the whole day
-□ Added to the ndr-hb-abuhb-academy access group and able to sign in (Section 6)
+□ Optional: added to the ndr-hb-abuhb-academy access group (Section 6, for the SQL extension)
 □ Personal access token created and stored safely, if your trainer asks for one (Section 4)
 □ Optional: Git, GitHub Desktop and VS Code installed on your own computer
 ```
@@ -143,7 +143,9 @@ git clone https://github.com/Aneurin-Bevan-University-Health-Board/<repository>.
 
 ---
 
-## 6. Google Cloud Project: ndr-hb-abuhb-academy
+## 6. Optional: Google Cloud Project ndr-hb-abuhb-academy
+
+**This section is optional.** The training day works without it. It is only needed for the SQL extension at the end of Session 9 and the BigQuery demos.
 
 The training lead creates this GCP project and a Google group for participants. Access to the project is granted to the group, not to individuals.
 
@@ -162,7 +164,7 @@ The training lead creates this GCP project and a Google group for participants. 
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
 | 404 on the organisation or repository | Not yet a member, or SSO not completed | Complete SSO; ask the admin team to check the group |
-| Cannot see the ndr-hb-abuhb-academy project | Not yet in the Google group | Ask the training lead to add you |
+| (Optional) Cannot see the ndr-hb-abuhb-academy project | Not yet in the Google group | Ask the training lead to add you |
 | Codespaces will not start | Not enabled for you or the repository | Ask the admin team |
 | 403 or "SAML enforcement" on push | Classic token not authorised for SSO | Configure SSO on the token and authorise it |
 | "Authentication failed" | Wrong password or expired token | Paste the token, not your GitHub password; create a new token |

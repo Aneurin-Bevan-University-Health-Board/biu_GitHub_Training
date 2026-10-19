@@ -12,7 +12,7 @@ Tick each box. Full instructions are in [Setup and Access](../Training/00_Setup_
 □ I have found my own folder: participants/<firstname-lastname>
 □ I have opened a Codespace on main and the terminal works
 □ I have stopped that Codespace again
-□ I am in the ndr-hb-abuhb-academy access group and can see the project in Google Cloud
+□ Optional: I am in the ndr-hb-abuhb-academy access group and can see the project in Google Cloud (for the SQL extension)
 □ I have made a GitHub personal access token, only if my trainer asked for one
 □ I have read the crib sheet
 ```
@@ -38,7 +38,7 @@ Timetable: 09:00 start, lunch 11:30 to 12:15, finish by 15:00.
 □ 3  Added my own .gitignore, pushed, opened a draft pull request
 □ 4  Edited my README in the browser and linked my pull request
 □ 5  Added my notes and saw a CSV ignored
-□ 6  Added a clean notebook and my SQL file
+□ 6  Added a clean notebook
 □ 7  Raised an issue and added requirements.txt
 □ 8  Built the Copilot exercise in dna-analysis
 □ 9  Reviewed a partner's pull request and merged mine

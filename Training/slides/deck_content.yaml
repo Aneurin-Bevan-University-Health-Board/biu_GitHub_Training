@@ -76,7 +76,7 @@ sessions:
       - A GitHub account that is a member of the ABUHB organisation (Azure AD group ABB_BIU_GitHub_Users)
       - A browser that can open Codespaces (nothing else to install). GitHub Desktop and VS Code are optional
       - Signed in to GitHub, with single sign-on authorised for the organisation
-      - Access to the ndr-hb-abuhb-academy Google Cloud project, through your training group
+      - "Optional: access to the ndr-hb-abuhb-academy Google Cloud project, for the SQL extension at the end of the day"
       - A GitHub personal access token, stored safely, if your trainer asks for one
     - heading: If something is missing
       bullets:
@@ -483,14 +483,14 @@ sessions:
   file: Training/06_Session_6_VS_Code_Integration_and_Notebooks.md
   focus: Development environment integration
   your_area:
-    heading: "Add a clean notebook and your SQL"
-    minutes: 7
+    heading: "Add a clean notebook"
+    minutes: 4
     steps:
-    - "Create starter.ipynb with one cell that prints a greeting, run it, then clear all outputs"
-    - "Copy Training/exercises/sql-basics/referrals_basics.sql into your folder as referrals.sql"
-    - "Run the queries in the BigQuery console, then change one and run it again"
-    - "Commit and push both files from the Source Control view"
-    checkpoint: "starter.ipynb with outputs cleared, and referrals.sql, committed and pushed"
+    - "Open the repository in VS Code on your branch"
+    - "Create starter.ipynb with one cell that prints a greeting, then run it"
+    - "Clear all outputs before you commit"
+    - "Commit and push from the Source Control panel"
+    checkpoint: "starter.ipynb committed with its outputs cleared"
   slides:
   - title: Why VS Code + GitHub
     sections:
@@ -527,18 +527,6 @@ sessions:
       - Secrets in environment variables or GitHub secrets — never in code
       - Branch protection with required reviews
       - Keep dependencies updated
-  - title: Running SQL Against the Academy Dataset
-    sections:
-    - heading: The ndr-hb-abuhb-academy project
-      bullets:
-      - A Google Cloud project for training, with a SQL_Basic_Training dataset
-      - Your SQL lives in Git as a file, so every change is tracked and reviewed
-    - heading: Three habits from the script
-      bullets:
-      - Preview with SELECT * and always add LIMIT
-      - Name only the columns you need
-      - Use SELECT DISTINCT for a unique list of values
-    note: BigQuery needs backticks round a table name with hyphens. Never commit results or data.
   - title: Codespaces vs Local
     sections:
     - heading: Prefer a Codespace when
@@ -851,3 +839,15 @@ sessions:
       - Practise the basic workflow regularly
       - Use GitHub for at least one real work project
       - Find a colleague to learn with
+  - title: "Optional Extension: SQL on the Academy Dataset"
+    optional: true
+    sections:
+    - heading: For anyone with time, or after the day
+      bullets:
+      - Needs access to the ndr-hb-abuhb-academy Google Cloud project, which is optional
+      - Copy the SQL script into your folder as referrals.sql and run it in BigQuery
+      - Preview with SELECT * and LIMIT, name your columns, then try SELECT DISTINCT
+    - heading: Why it belongs in Git
+      bullets:
+      - SQL is code, so changes are tracked, reviewed and reversible
+    note: BigQuery needs backticks round a table name with hyphens. Never commit results or data.
