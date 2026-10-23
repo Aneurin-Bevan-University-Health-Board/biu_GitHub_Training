@@ -1,0 +1,9 @@
+# Your own ignore rules. Data and outputs never go to GitHub.
+*.csv
+*.xlsx
+*.parquet
+data/
+outputs/
+.ipynb_checkpoints/
+__pycache__/
+.env
