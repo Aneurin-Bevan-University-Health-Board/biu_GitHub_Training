@@ -1,5 +1,4 @@
 # Your own ignore rules. Data and outputs never go to GitHub.
-*.csv
 *.xlsx
 *.parquet
 data/
