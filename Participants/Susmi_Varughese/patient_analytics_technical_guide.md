@@ -31,6 +31,25 @@ python patient_analytics.py -n 10 --csv
 
 The module can also be imported and its functions called directly. Importing it does not run the CLI; the `main()` entry point runs only when the file is executed as a script.
 
+## Processing flow
+
+```mermaid
+flowchart TD
+    A[Run patient_analytics.py] --> B[Parse count, seed, and output options]
+    B --> C[Open cohort-run audit session]
+    C --> D[Generate fictional patients and encounters]
+    D --> E{CSV output?}
+    E -- Yes --> F[Assess each patient]
+    F --> G[Write CSV to standard output]
+    E -- No --> H[Render report]
+    H --> I[Assess and rank patients]
+    H --> J[Calculate cohort statistics and condition prevalence]
+    I --> K[Return text report]
+    J --> K
+    G --> L[Close audit session]
+    K --> L
+```
+
 ## Data model and reference data
 
 - **`Sex`** is an enum with `FEMALE`, `MALE`, and `OTHER` values.
