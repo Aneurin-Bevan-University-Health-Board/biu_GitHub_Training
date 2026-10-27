@@ -18,6 +18,27 @@ The module uses only the Python standard library and requires Python 3.8 or late
 
 The reference ranges, name lists, and condition pool are constants in the module. They are illustrative only.
 
+## Processing flow
+
+```mermaid
+flowchart TD
+    A["CLI arguments: count, seed, output format"] --> B["audit_session begins"]
+    B --> C["generate_patients"]
+    C --> D["Fictional patients with encounter histories"]
+    D --> E{"Output format"}
+    E -->|Text| F["render_report"]
+    F --> G["Assess and sort patients"]
+    G --> H["Cohort statistics, tier counts, condition prevalence, top five"]
+    H --> I["Print text report"]
+    E -->|CSV| J["Assess each patient"]
+    J --> K["write_csv"]
+    K --> L["Print CSV"]
+    I --> M["audit_session ends"]
+    L --> M
+```
+
+In the text path, `render_report()` performs the assessments before assembling the report. In the CSV path, the CLI assesses patients directly and passes the results to `write_csv()`.
+
 ## Synthetic data generation
 
 `generate_patients(count, seed=RANDOM_SEED)` creates `count` records using a local `random.Random` instance. The default seed is `1337`, making generated records reproducible for the same Python runtime and input. Each generated patient has zero to three selected conditions and one to four encounters. Encounters contain generated measurements produced by `_random_vitals()`.
