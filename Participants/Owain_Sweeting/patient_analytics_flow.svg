@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="930" viewBox="0 0 1200 930" role="img" aria-labelledby="title description">
+  <title id="title">Patient analytics pipeline</title>
+  <desc id="description">A blue-dominant diagram showing command-line options flowing through fictional patient generation, data models, rule-based risk scoring, and text or CSV reporting. Audit logging spans the run. A note emphasizes that the data and rules are for training only, not clinical use.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1d4ed8"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #102a43; }
+      .title { font-size:  thirty; font-size: 30px; font-weight: 700; fill: #ffffff; }
+      .subtitle { font-size: 15px; fill: #dbeafe; }
+      .heading { font-size: 18px; font-weight: 700; fill: #123b70; }
+      .body { font-size: 14px; }
+      .small { font-size: 12px; }
+      .white { fill: #ffffff; }
+      .card { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2; }
+      .subcard { fill: #ffffff; stroke: #93c5fd; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #1d4ed8; stroke-width: 3; marker-end: url(#arrow); }
+      .dashed { fill: none; stroke: #2563eb; stroke-width: 2; stroke-dasharray: 8 6; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="930" fill="#f8fbff"/>
+  <rect width="1200" height="106" fill="#174ea6"/>
+  <text x="54" y="52" class="title">Patient Analytics Pipeline</text>
+  <text x="56" y="80" class="subtitle">patient_analytics.py · fictional training example · Python standard library</text>
+
+  <rect x="55" y="138" width="1090" height="82" rx="14" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="78" y="169" class="heading">CLI entry point: main()</text>
+  <text x="78" y="195" class="body">--count (default 25) · --seed (default 1337) · --csv (select CSV instead of text)</text>
+  <path d="M600 220V256" class="arrow"/>
+
+  <rect x="55" y="265" width="470" height="180" rx="14" class="card"/>
+  <text x="80" y="300" class="heading">1 · Generate synthetic cohort</text>
+  <rect x="80" y="321" width="190" height="91" rx="10" class="subcard"/>
+  <text x="98" y="348" class="body" font-weight="700">generate_patients()</text>
+  <text x="98" y="371" class="small">Seeded random generator</text>
+  <text x="98" y="391" class="small">Names · conditions · dates</text>
+  <rect x="300" y="321" width="195" height="91" rx="10" class="subcard"/>
+  <text x="318" y="348" class="body" font-weight="700">Encounter data</text>
+  <text x="318" y="371" class="small">1–4 sets of generated vitals</text>
+  <text x="318" y="391" class="small">Values use fixed distributions</text>
+
+  <rect x="675" y="265" width="470" height="180" rx="14" class="card"/>
+  <text x="700" y="300" class="heading">2 · Model patients and measurements</text>
+  <rect x="700" y="321" width="190" height="91" rx="10" class="subcard"/>
+  <text x="718" y="348" class="body" font-weight="700">Patient</text>
+  <text x="718" y="371" class="small">Demographics · conditions</text>
+  <text x="718" y="391" class="small">Dated encounter history</text>
+  <rect x="920" y="321" width="195" height="91" rx="10" class="subcard"/>
+  <text x="938" y="348" class="body" font-weight="700">Vitals (immutable)</text>
+  <text x="938" y="371" class="small">BP · heart rate · glucose</text>
+  <text x="938" y="391" class="small">BMI · temperature</text>
+
+  <path d="M525 354H660" class="arrow"/>
+  <path d="M910 445V476H600V505" class="arrow"/>
+
+  <rect x="225" y="515" width="750" height="205" rx="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="255" y="552" class="heading">3 · Assess risk using latest encounter + patient attributes</text>
+  <rect x="252" y="574" width="410" height="112" rx="10" class="subcard"/>
+  <text x="272" y="601" class="body" font-weight="700">assess_patient() · DEFAULT_RULES</text>
+  <text x="272" y="624" class="small">High BP +3 · glucose ≥140 +2 · BMI ≥30 +2</text>
+  <text x="272" y="645" class="small">≥2 conditions +1 · age ≥65 +1</text>
+  <text x="272" y="668" class="small">Matching points are summed; reasons are retained.</text>
+  <rect x="690" y="574" width="252" height="112" rx="10" fill="#2563eb"/>
+  <text x="714" y="603" class="body white" font-weight="700">RiskAssessment</text>
+  <text x="714" y="628" class="body white">score + reasons</text>
+  <text x="714" y="654" class="body white">tier: low → critical</text>
+  <path d="M662 630H680" class="arrow"/>
+
+  <path d="M600 720V754H310V778" class="arrow"/>
+  <path d="M600 754H890V778" class="arrow"/>
+  <rect x="55" y="788" width="510" height="90" rx="14" class="card"/>
+  <text x="80" y="822" class="heading">Text report · render_report()</text>
+  <text x="80" y="849" class="body">Cohort statistics · tier counts · condition prevalence · top five</text>
+  <rect x="635" y="788" width="510" height="90" rx="14" class="card"/>
+  <text x="660" y="822" class="heading">CSV output · write_csv()</text>
+  <text x="660" y="849" class="body">One assessment per row · written to standard output</text>
+
+  <rect x="55" y="462" width="470" height="34" rx="10" fill="#bfdbfe"/>
+  <text x="72" y="484" class="small" font-weight="700">Audit: audit_session() brackets run; decorators record calls in memory</text>
+  <path d="M525 479H1088V236H1100" class="dashed"/>
+
+  <rect x="55" y="895" width="1090" height="25" rx="8" fill="#174ea6"/>
+  <text x="600" y="913" text-anchor="middle" class="small white" font-weight="700">All data and thresholds are illustrative and fictional — not for clinical use or medical advice.</text>
+</svg>

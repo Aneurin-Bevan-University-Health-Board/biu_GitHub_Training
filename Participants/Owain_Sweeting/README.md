@@ -10,5 +10,8 @@
 |------|----------|
 | README.md | Session 2 |
 | patient_analytics.py | Session 2 |
+| patient_analytics_flow.svg | Session 2 |
 | patient_analytics_technical_documentation.md | Session 2 |
 | patient_report.sql | Session 2 |
+
+![Blue flow diagram of the patient analytics pipeline](patient_analytics_flow.svg)
