@@ -1,167 +1,70 @@
-# Git &Hub Crib Sheet
+# GitHub: A Quick Guide
 
-A quick reference for essential Git concepts and how to use with GitHub UI, GitHub, and VS Code.
+A simple guide to viewing and making small changes on GitHub in your web browser.
 
----
+## What is GitHub?
 
-## Concepts
+GitHub is a website where teams can keep project files, share information and work together.
 
-- **Repository**: A folder tracked by Git. On Git, it's hosted online and accessible via web UI or desktop tools.
-- ****: A saved snapshot of changes In GitHub Desktop/VS Code use the "Commit" button after writing message.
-- **Branch**: separate line of development. Create,, and manage branches in GitHub UI Desktop, or VS Code.
--Merge**: Combine changes from one into another. Use Pull Requests (PR) in GitHub UI or merge Desktop/VS Code.
-- ****: The online version of your repoe.g., on GitHub).
+## A few useful words
 
-## Typical Workflow (GitHub UI Desktop / VS Code)
+- **Repository**: A project space that contains files and information.
+- **File**: A document or other item stored in a project.
+- **Folder**: A place inside a project used to organise files.
+- **Owner**: The person or team responsible for a project.
+- **Collaborator**: Someone invited to help with a project.
+- **Access**: The level of permission you have to view or change a project.
+- **Branch**: A separate working version of a project, used to prepare changes without changing the main version straight away.
+- **Main branch**: The project’s primary version.
+- **Change history**: A record of what has been changed in a project and when.
+- **Commit changes**: Save your proposed changes in GitHub, with a short note explaining them.
+- **Issue**: A question, problem or piece of work that a team wants to track.
+- **Pull request**: A suggestion to change files. Other people can review it before the change is accepted.
+- **Review**: When someone checks proposed changes and provides feedback.
+- **Merge**: Add approved changes to the main version of a project.
+- **Notification**: An alert about activity or updates in a project.
+- **Label**: A short tag used to organise issues or other items.
+- **Discussion**: A place to ask questions or share ideas about a project.
+- **README**: An introductory file that explains what a project is and how to use it.
+- **Wiki**: A collection of information pages about a project.
+- **Release**: A named version of a project that is ready to share or use.
+- **Fork**: Your own copy of another person’s project, where you can suggest changes.
 
-### 1 Clone a Repository
+## Find and read a project
 
-- **Git UI**: Click "Code" "Open with GitHub Desktop" or the URL.
-- **GitHub**: "File" > " Repository" > paste URL.
-- ** Code**: "Source Control" > "Clone Repository > paste URL.
+1. Open the project link in your web browser.
+2. Select a folder to see what is inside, or select a file to read it.
+3. Use the project search or your browser’s find feature to locate information.
+4. If you cannot access the project, ask the person who shared the link to check your access.
 
-### 2 Make Changes
+## Suggest a small change
 
-- Edit files in your (VS Code).
-- Changes appear "Changes" tab (Desktop/ Code).
+1. Open the file you want to update.
+2. Select the pencil-shaped **Edit** button, if it is available.
+3. Make your change in the text box.
+4. Check the preview or read through your changes.
+5. Select **Commit changes** and add a short note describing what you changed.
+6. If GitHub asks how you want to submit the change, choose to suggest it for review. A project owner or colleague can review and accept it.
 
-### 3. Stage &
+The available buttons may differ depending on your access and the project’s settings. If you are unsure, ask the project owner before changing anything.
 
-- **GitHub Desktop** Select files, enter a message, "Commit to main/branch".
--VS Code**: Stage files (), enter message, click "Commit- **GitHub UI**: For edits, use the web editor andCommit changes".
+## Ask a question or report a problem
 
-### 4. Changes
+1. Open the project’s **Issues** tab.
+2. Select **New issue**, if available.
+3. Add a clear title and explain the question or problem.
+4. Select **Submit new issue**.
 
-- **GitHub Desktop/ Code**: Click "Push origin to upload commits.
-- **Git UI**: Changes are saved automatically for edits.
+If you cannot see the **Issues** tab or **New issue** button, ask a colleague or project owner for help.
 
-### 5. Branching- **GitHub Desktop**:Branch" menu > "New branch- **VS Code**: " Control" > "Create new branch".
- **GitHub UI**: "" dropdown > "New branch".
+## Helpful reminders
 
- 6. Merging & Pull
+- Read the file before changing it.
+- Keep changes small and explain what you changed.
+- Ask for help if you are unsure.
+- Do not add confidential or personal information unless the project is approved for it.
 
-- **GitHub UI**:Pull Requests" > "New Pull" to merge branches.
-- **Hub Desktop/VS Code**: Switch target branch, merge from source branch or use "Create Pull Request".
+## Get help
 
-### 7. Resolvinglicts
-
-- **GitHub UI**: Conflicts shown PR; edit files in web editor- **Desktop/VS Code**:licts highlighted; edit, stage, commit resolved files.
-
----
-
-## Useful
-
-- **GitHub UI**: repo management, branching, PRs code review.
-- **GitHub**: Visual tool for commits,, sync.
-- **VS Code** Integrated Git support for editing, staging committing, branching.
-
----
-
-## Advanced
-
-- **Stash**: available in GitHub UI; use DesktopVS Code for "Stash changes (Desktop: "Repository" > "Stash").
-- **Tagging**: UseHub UI "Releases" to create; Desktop/VS Code for advanced.
-- **Cherry-pick** Advanced; use Desktop/VS Code "Cherry-pick commit".
-
----
-
-## Practices
-
-- Commit often with clear.
-- Use branches for features/f.
-- Open Pull Requests for code and merging.
-- Sync (pull) pushing to avoid conflicts.
-- Review before merging.
-
----
-
-## Getting Help- **GitHub UI**: "" menu, documentation links.
--GitHub Desktop**: "Help > "GitHub Desktop Help".
- **VS Code**: "Help" "Git Documentation".
-
-For more details visit [GitHub Docs](httpsdocs.github.com/) or [Git](https://git-scm.com/doc-+-+-+-+-+
----
-
-## Common Git Commands
-
-| Command                | Description                                                                 | Example Usage                       |
-|------------------------|-----------------------------------------------------------------------------|-------------------------------------|
-| `git init`             | Initialize a new Git repository                                             | `git init`                          |
-| `git clone <url>`      | Clone a repository from a remote URL                                        | `git clone https://github.com/user/repo.git` |
-| `git status`           | Show the working directory status                                           | `git status`                        |
-| `git add <file>`       | Stage changes for commit                                                    | `git add README.md`                 |
-| `git add .`            | Stage all changes in the directory                                          | `git add .`                         |
-| `git commit -m "<msg>"`| Commit staged changes with a message                                        | `git commit -m "Initial commit"`    |
-| `git log`              | View commit history                                                         | `git log`                           |
-| `git diff`             | Show changes between commits, branches, or files                            | `git diff HEAD~1 HEAD`              |
-| `git branch`           | List branches                                                               | `git branch`                        |
-| `git branch <name>`    | Create a new branch                                                         | `git branch feature-xyz`            |
-| `git checkout <name>`  | Switch to a branch                                                          | `git checkout main`                 |
-| `git merge <branch>`   | Merge another branch into current                                           | `git merge feature-xyz`             |
-| `git pull`             | Fetch and merge changes from remote                                         | `git pull`                          |
-| `git push`             | Push local commits to remote                                                | `git push origin main`              |
-| `git remote -v`        | List remote repositories                                                    | `git remote -v`                     |
-| `git stash`            | Temporarily save changes                                                    | `git stash`                         |
-| `git stash pop`        | Reapply stashed changes                                                     | `git stash pop`                     |
-| `git tag <name>`       | Create a tag                                                                | `git tag v1.0.0`                    |
-| `git cherry-pick <sha>`| Apply changes from a specific commit                                        | `git cherry-pick a1b2c3d`           |
-| `git reset --hard <sha>`| Reset to a specific commit, discarding changes                             | `git reset --hard HEAD~1`           |
-| `git rm <file>`        | Remove a file from the repository                                           | `git rm old.txt`                    |
-| `git fetch`            | Download objects and refs from another repository                           | `git fetch origin`                  |
-| `git rebase <branch>`  | Reapply commits on top of another base tip                                  | `git rebase main`                   |
-| `git revert <sha>`     | Create a new commit that undoes changes from a previous commit              | `git revert a1b2c3d`                |
-
----
-
-## GitHub UI & Desktop Actions
-
-| Action                        | GitHub UI                           | GitHub Desktop                | VS Code                        |
-|-------------------------------|-------------------------------------|-------------------------------|-------------------------------|
-| Clone Repository              | "Code" > "Open with GitHub Desktop" | "File" > "Clone repository"   | "Source Control" > "Clone"    |
-| Create Branch                 | "Branch" dropdown > "New branch"    | "Branch" > "New branch"       | "Source Control" > "Branch"   |
-| Commit Changes                | Web editor > "Commit changes"       | Stage files, "Commit to..."   | Stage, enter message, "Commit"|
-| Push Changes                  | N/A (auto for web edits)            | "Push origin"                 | "Push"                        |
-| Pull Changes                  | N/A                                 | "Fetch origin"                | "Pull"                        |
-| Open Pull Request             | "Pull Requests" > "New Pull Request"| "Create Pull Request"         | "Create Pull Request"         |
-| Resolve Conflicts             | Edit in web editor                  | Edit, stage, commit           | Edit, stage, commit           |
-| Stash Changes                 | N/A                                 | "Repository" > "Stash"        | "Stash" via command palette   |
-| Tag/Release                   | "Releases" tab                      | "Repository" > "Tag"          | Git commands                  |
-| Cherry-pick                   | N/A                                 | "Branch" > "Cherry-pick"      | Git commands                  |
-
----
-
-## Example Git Workflow
-
-1. **Clone**: `git clone <repo-url>`
-2. **Create Branch**: `git checkout -b feature-branch`
-3. **Edit Files**: Make changes in your editor.
-4. **Stage Changes**: `git add .`
-5. **Commit**: `git commit -m "Describe changes"`
-6. **Push**: `git push origin feature-branch`
-7. **Open Pull Request**: Use GitHub UI to merge changes.
-8. **Resolve Conflicts**: Edit files, stage, commit, and push.
-9. **Merge**: Complete PR to merge into main branch.
-
----
-
-## Troubleshooting & Help
-
-| Issue                | Solution/Command                      |
-|----------------------|---------------------------------------|
-| Untracked files      | `git add <file>`                      |
-| Merge conflicts      | Edit files, `git add`, `git commit`   |
-| Undo last commit     | `git reset --soft HEAD~1`             |
-| Discard changes      | `git checkout -- <file>`              |
-| Stash changes        | `git stash`                           |
-| Restore stash        | `git stash pop`                       |
-| View help            | `git help <command>`                  |
-
----
-
-## Resources
-
-- [GitHub Docs](https://docs.github.com/)
-- [Git Documentation](https://git-scm.com/doc)
-- [VS Code Git Guide](https://code.visualstudio.com/docs/sourcecontrol/git)
-
----
+- Ask the person who shared the project with you.
+- See [GitHub Docs](https://docs.github.com/) for help using GitHub.
