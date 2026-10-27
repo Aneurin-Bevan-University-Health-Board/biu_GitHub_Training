@@ -1,8 +1,8 @@
 # firstname-lastname
 
-- **Name:** 
-- **Team:** 
-- **Today I want to learn:** 
+- **Name:** Adam James
+- **Team:** Business & Performance 
+- **Today I want to learn:** GitHub
 
 ## What is in this folder
 
