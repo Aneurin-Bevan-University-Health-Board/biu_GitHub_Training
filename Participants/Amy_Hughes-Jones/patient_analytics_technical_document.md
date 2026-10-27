@@ -57,6 +57,23 @@ Each rule accepts a `Patient` and returns either `(points, reason)` or `None`. T
 
 ## Command-line interface
 
+### Pipeline diagram
+
+```mermaid
+flowchart TD
+    A["CLI arguments"] --> B["Begin audit session"]
+    B --> C["Generate fictional cohort<br/>generate_patients()"]
+    C --> D{"Output format"}
+    D -->|Text| E["Assess patients<br/>and sort by score"]
+    E --> F["Build report<br/>statistics, tiers, conditions, top patients"]
+    F --> G["Print text report"]
+    D -->|CSV| H["Assess each patient"]
+    H --> I["Write CSV"]
+    I --> J["Print CSV"]
+    G --> K["End audit session"]
+    J --> K
+```
+
 Run the module directly to generate and print a text report:
 
 ```shell
