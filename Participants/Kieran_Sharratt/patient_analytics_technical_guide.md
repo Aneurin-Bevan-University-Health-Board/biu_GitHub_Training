@@ -16,6 +16,34 @@ The command-line workflow is:
 
 The same components can also be called directly from Python.
 
+## At-a-glance workflow
+
+```mermaid
+flowchart TD
+    A["CLI options<br/>count + seed"] --> B["Generate fictional<br/>patients + encounters"]
+    B --> C["Assess each patient<br/>using latest vitals + rules"]
+    C --> D["Add rule points<br/>and assign a risk tier"]
+    D --> E{"Output format"}
+    E -->|Text| F["Cohort statistics<br/>tiers + top 5"]
+    E -->|CSV| G["Assessment rows<br/>written to CSV"]
+    H["Audit trail<br/>in memory"] -. records calls .-> B
+    H -. records calls .-> C
+
+    classDef input fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px
+    classDef processing fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef output fill:#f3e8ff,stroke:#9333ea,color:#581c87,stroke-width:2px
+    classDef audit fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:2px
+
+    class A input
+    class B,C,D processing
+    class E decision
+    class F,G output
+    class H audit
+```
+
+The audit trail is separate from the report and CSV output; it is retained only in memory for the current process.
+
 ## Data model
 
 - **`Sex`** is an enum with `FEMALE`, `MALE`, and `OTHER` values.
