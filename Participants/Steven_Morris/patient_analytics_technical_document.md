@@ -20,6 +20,25 @@ The command-line workflow is:
 
 The functions can also be imported and used independently.
 
+```mermaid
+flowchart TD
+    CLI["main() / command line"] --> SESSION["audit_session"]
+    SESSION --> GENERATE["generate_patients"]
+    GENERATE --> COHORT["Fictional patient cohort"]
+    COHORT --> FORMAT{"Output format"}
+    FORMAT -->|Text| REPORT["render_report"]
+    REPORT --> ASSESS["Assess and sort patients"]
+    ASSESS --> STATS["Calculate cohort statistics,<br/>risk tiers, and condition prevalence"]
+    STATS --> TEXT["Print text report"]
+    FORMAT -->|CSV| CSV_ASSESS["Assess each patient"]
+    CSV_ASSESS --> WRITE_CSV["write_csv"]
+    WRITE_CSV --> CSV_OUTPUT["Print CSV"]
+    SESSION -. "records begin/end markers" .-> AUDIT["In-memory audit trail"]
+    GENERATE -. "decorator logs call" .-> AUDIT
+    ASSESS -. "decorator logs calls" .-> AUDIT
+    CSV_ASSESS -. "decorator logs calls" .-> AUDIT
+```
+
 ## Data model
 
 - **`Sex`** is an enum with `FEMALE`, `MALE`, and `OTHER` values.
