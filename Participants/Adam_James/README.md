@@ -9,3 +9,5 @@
 | File | Added in |
 |------|----------|
 | README.md | Session 2 |
+| patient_analytics.py | Training example |
+| patient_analytics_technical_document.md | Technical documentation |
