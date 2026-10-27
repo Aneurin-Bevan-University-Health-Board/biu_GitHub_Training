@@ -10,9 +10,25 @@ GitHub is a website where teams can keep project files, share information and wo
 
 - **Repository**: A project space that contains files and information.
 - **File**: A document or other item stored in a project.
+- **Folder**: A place inside a project used to organise files.
+- **Owner**: The person or team responsible for a project.
+- **Collaborator**: Someone invited to help with a project.
+- **Access**: The level of permission you have to view or change a project.
+- **Branch**: A separate working version of a project, used to prepare changes without changing the main version straight away.
+- **Main branch**: The project’s primary version.
+- **Change history**: A record of what has been changed in a project and when.
+- **Commit changes**: Save your proposed changes in GitHub, with a short note explaining them.
 - **Issue**: A question, problem or piece of work that a team wants to track.
 - **Pull request**: A suggestion to change files. Other people can review it before the change is accepted.
-- **Main page**: The project’s primary version.
+- **Review**: When someone checks proposed changes and provides feedback.
+- **Merge**: Add approved changes to the main version of a project.
+- **Notification**: An alert about activity or updates in a project.
+- **Label**: A short tag used to organise issues or other items.
+- **Discussion**: A place to ask questions or share ideas about a project.
+- **README**: An introductory file that explains what a project is and how to use it.
+- **Wiki**: A collection of information pages about a project.
+- **Release**: A named version of a project that is ready to share or use.
+- **Fork**: Your own copy of another person’s project, where you can suggest changes.
 
 ## Find and read a project
 
