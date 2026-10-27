@@ -7,7 +7,7 @@
     </marker>
     <style>
       text { font-family: Arial, Helvetica, sans-serif; fill: #102a43; }
-      .title { font-size:  thirty; font-size: 30px; font-weight: 700; fill: #ffffff; }
+      .title { font-size: 30px; font-weight: 700; fill: #ffffff; }
       .subtitle { font-size: 15px; fill: #dbeafe; }
       .heading { font-size: 18px; font-weight: 700; fill: #123b70; }
       .body { font-size: 14px; }
@@ -25,10 +25,11 @@
   <text x="54" y="52" class="title">Patient Analytics Pipeline</text>
   <text x="56" y="80" class="subtitle">patient_analytics.py · fictional training example · Python standard library</text>
 
-  <rect x="55" y="138" width="1090" height="82" rx="14" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <rect x="55" y="138" width="1090" height="90" rx="14" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
   <text x="78" y="169" class="heading">CLI entry point: main()</text>
   <text x="78" y="195" class="body">--count (default 25) · --seed (default 1337) · --csv (select CSV instead of text)</text>
-  <path d="M600 220V256" class="arrow"/>
+  <text x="78" y="216" class="small">Audit session brackets the run; decorated calls append to an in-memory trail.</text>
+  <path d="M290 228V256" class="arrow"/>
 
   <rect x="55" y="265" width="470" height="180" rx="14" class="card"/>
   <text x="80" y="300" class="heading">1 · Generate synthetic cohort</text>
@@ -76,10 +77,6 @@
   <rect x="635" y="788" width="510" height="90" rx="14" class="card"/>
   <text x="660" y="822" class="heading">CSV output · write_csv()</text>
   <text x="660" y="849" class="body">One assessment per row · written to standard output</text>
-
-  <rect x="55" y="462" width="470" height="34" rx="10" fill="#bfdbfe"/>
-  <text x="72" y="484" class="small" font-weight="700">Audit: audit_session() brackets run; decorators record calls in memory</text>
-  <path d="M525 479H1088V236H1100" class="dashed"/>
 
   <rect x="55" y="895" width="1090" height="25" rx="8" fill="#174ea6"/>
   <text x="600" y="913" text-anchor="middle" class="small white" font-weight="700">All data and thresholds are illustrative and fictional — not for clinical use or medical advice.</text>
