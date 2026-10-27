@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Guide | England Test Cricket Dashboard</title>
+  <style>
+    :root {
+      --odi: #72c7e7;
+      --blue: #007db5;
+      --t20: #c8102e;
+      --navy: #172b4d;
+      --pale: #e8f6fc;
+      --line: #c7dce5;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f3f8fb; color: var(--navy); font: 16px/1.65 'Trebuchet MS', sans-serif; }
+    main { max-width: 1000px; margin: 0 auto; padding: 48px 40px; background: white; }
+    header { border-top: 10px solid var(--odi); border-bottom: 4px solid var(--t20); padding: 24px 0; }
+    h1 { margin: 0; color: var(--t20); font-size: 36px; line-height: 1.2; }
+    h2 { margin: 38px 0 12px; color: var(--blue); font-size: 25px; line-height: 1.3; border-bottom: 2px solid var(--odi); padding-bottom: 8px; }
+    h3 { margin: 22px 0 8px; color: var(--t20); font-size: 19px; line-height: 1.4; }
+    p { margin: 10px 0; }
+    a { color: #006795; text-underline-offset: 3px; overflow-wrap: anywhere; }
+    a:focus-visible { outline: 2px solid var(--t20); outline-offset: 3px; }
+    li { margin: 6px 0; }
+    nav { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    nav ol { columns: 2; padding-left: 24px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    caption { text-align: left; font-weight: bold; color: var(--t20); padding: 8px 0; }
+    th { text-align: left; background: var(--pale); color: var(--navy); }
+    th, td { padding: 10px 12px; border: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+    .note { border-left: 4px solid var(--t20); padding: 10px 16px; background: #fff4f5; margin: 18px 0; }
+    .meta { font-size: 14px; }
+    figure { margin: 22px 0; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    figcaption { color: var(--t20); font-weight: bold; margin-bottom: 14px; }
+    .flow { list-style: none; margin: 0 auto; padding: 0; max-width: 600px; text-align: center; }
+    .flow > li { margin: 0; }
+    .flow > li + li::before { content: '\2193'; display: block; color: var(--t20); font-size: 25px; line-height: 1.4; }
+    .node { display: block; padding: 12px 16px; border: 2px solid var(--blue); border-radius: 4px; background: var(--pale); }
+    .decision { border-color: var(--t20); background: #fff4f5; }
+    .branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .branch { border: 1px solid var(--line); padding: 10px; background: white; }
+    .branch strong { display: block; color: var(--t20); }
+    code, pre { font-family: 'Trebuchet MS', sans-serif; }
+    code { overflow-wrap: anywhere; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--pale); padding: 14px; border-left: 4px solid var(--blue); font-size: 14px; }
+    footer { border-top: 4px solid var(--odi); margin-top: 36px; padding-top: 14px; font-size: 14px; }
+    @media (max-width: 640px) {
+      main { padding: 24px 16px; }
+      h1 { font-size: 29px; }
+      nav ol { columns: 1; }
+      .branches { grid-template-columns: 1fr; }
+      th, td { padding: 8px; }
+    }
+    @media print {
+      @page { margin: 18mm; }
+      body { background: white; font-size: 11pt; }
+      main { max-width: none; padding: 0; }
+      h1 { font-size: 28pt; }
+      h2 { font-size: 18pt; break-after: avoid; }
+      h3, figcaption { break-after: avoid; }
+      figure, tr, .note, pre { break-inside: avoid; }
+      thead { display: table-header-group; }
+      a { color: var(--blue); }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>User Guide</h1>
+    <p><strong>England Test Cricket Dashboard</strong></p>
+    <p>Historical match analysis, player statistics, ground locations, upcoming England Tests and today's Test scores.</p>
+    <p class="meta">Prepared for Kieran Sharratt | Updated 27 October 2026</p>
+    <p class="meta">Trebuchet MS typography. Heading and diagram colours are inspired by England's ODI light blue and T20 red, with navy text. These are not certified official kit colour specifications.</p>
+  </header>
+
+  <nav aria-label="Contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#start">Getting Started</a></li>
+      <li><a href="#navigation">Choosing a Tab</a></li>
+      <li><a href="#filters">Historical Match Filters</a></li>
+      <li><a href="#matches">Match Centre</a></li>
+      <li><a href="#players">Player Statistics</a></li>
+      <li><a href="#map">Ground Map</a></li>
+      <li><a href="#upcoming">Upcoming Tests</a></li>
+      <li><a href="#live">Live Scores</a></li>
+      <li><a href="#downloads">Downloads and Definitions</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#maintenance">Setup and Data Maintenance</a></li>
+    </ol>
+  </nav>
+
+  <section id="start">
+    <h2>1. Getting Started</h2>
+    <ol>
+      <li>Ensure the dashboard has been started. If you manage the app yourself, follow the setup instructions in section 11.</li>
+      <li>In Codespaces, open VS Code's <strong>Ports</strong> panel and select <strong>Open in Browser</strong> for port <strong>8501</strong>. Sign in to GitHub if requested.</li>
+      <li>For a locally running dashboard, open <a href="http://localhost:8501">http://localhost:8501</a> on the same computer.</li>
+      <li>Wait for the data to load, then select a tab. On narrow screens, expand the sidebar to reach historical match filters.</li>
+    </ol>
+    <p>The historical tabs use locally exported Cricsheet deliveries. Upcoming Tests and Live Scores retrieve BBC Sport data over the internet. Ground-map background tiles also require internet access.</p>
+    <p>You can read this guide offline. Use your browser's <strong>Print</strong> command and choose <strong>Save as PDF</strong> for a printable copy. Enable background graphics to retain the shaded flowcharts. Trebuchet MS is used when installed on the viewing device; otherwise, the browser uses a sans-serif fallback.</p>
+  </section>
+
+  <section id="navigation">
+    <h2>2. Choosing a Tab</h2>
+    <table>
+      <caption>Dashboard navigation</caption>
+      <thead><tr><th scope="col">Your task</th><th scope="col">Tab</th><th scope="col">Data source</th></tr></thead>
+      <tbody>
+        <tr><td>Review a historical Test and its innings</td><td>Match Centre</td><td>Local Cricsheet exports</td></tr>
+        <tr><td>Compare batting or bowling performances</td><td>Player Statistics</td><td>Local Cricsheet exports</td></tr>
+        <tr><td>Find grounds and compare match counts</td><td>Ground Map</td><td>Local exports and venue catalogue</td></tr>
+        <tr><td>See England's scheduled Tests</td><td>Upcoming Tests</td><td>BBC Sport</td></tr>
+        <tr><td>Follow Test matches taking place today</td><td>Live Scores</td><td>BBC Sport</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>Two independent sets of filters:</strong> the sidebar affects Match Centre, Player Statistics and Ground Map only. The team controls inside Upcoming Tests and Live Scores apply to those tabs separately. Changing the historical date range does not change BBC fixtures or live scores.</div>
+    <figure aria-labelledby="route-caption">
+      <figcaption id="route-caption">Flowchart 1. Choose the right workflow</figcaption>
+      <ol class="flow">
+        <li><span class="node">Open the England Test Cricket dashboard</span></li>
+        <li><span class="node decision">Do you need historical or current match information?</span></li>
+        <li><div class="branches">
+          <div class="branch"><strong>Historical</strong>Set the sidebar filters<br>&#8595;<br>Match Centre, Player Statistics or Ground Map<br>&#8595;<br>Review results and download CSV data</div>
+          <div class="branch"><strong>Current / Future</strong>Open Upcoming Tests or Live Scores<br>&#8595;<br>Set the controls inside that tab<br>&#8595;<br>Review BBC data or open a BBC scorecard</div>
+        </div></li>
+      </ol>
+    </figure>
+  </section>
+
+  <section id="filters">
+    <h2>3. Historical Match Filters</h2>
+    <ol>
+      <li>Under <strong>Match Selection</strong>, choose <strong>Men</strong>, <strong>Women</strong> or <strong>Both</strong>. The initial selection is Men.</li>
+      <li>Set both ends of <strong>Match start dates</strong>. A match is selected by its start date, not by whether any part of the match overlaps the range.</li>
+      <li>Optionally choose <strong>Opposition</strong>, <strong>Ground</strong> and <strong>England result</strong>. Leaving a selector empty includes all options for that field.</li>
+      <li>Read the summary metrics: Tests, England wins, Grounds and Recorded deliveries. They describe the filtered historical selection, not the live feed.</li>
+    </ol>
+    <p>Several selections in one field are alternatives; selections across different fields are combined. For example, two opposition teams plus one ground returns matches against either team at that ground.</p>
+    <p>If there are no results, widen the date range or remove individual opposition, ground or result selections. If only one date is entered, complete the end date.</p>
+  </section>
+
+  <section id="matches">
+    <h2>4. Match Centre</h2>
+    <ol>
+      <li>Apply the historical filters, then open <strong>Match Centre</strong>.</li>
+      <li>Use <strong>Match</strong> to select a Test. The list shows the date, opposition, venue and men's or women's team, with the newest matches first.</li>
+      <li>Review the venue, date and result, then the innings table showing team, runs, wickets and overs.</li>
+      <li>Inspect the cumulative-runs chart. Each line represents an innings; the horizontal axis counts recorded deliveries, including illegal deliveries, rather than legal balls or overs.</li>
+      <li>Expand <strong>All selected matches</strong> to see the wider filtered match list.</li>
+      <li>Select <strong>Download matches</strong> to export all matches in the historical selection, not just the Test selected in the Match dropdown.</li>
+    </ol>
+    <p>Where available, hover over a chart to inspect values. Historical totals are reconstructed from recorded deliveries and may differ from an official scorecard where adjustments are not captured in those deliveries.</p>
+  </section>
+
+  <section id="players">
+    <h2>5. Player Statistics</h2>
+    <ol>
+      <li>Set the sidebar filters for the matches you want to analyse.</li>
+      <li>Open <strong>Player Statistics</strong> and choose <strong>England</strong>, <strong>Opposition</strong> or <strong>All</strong> under Players.</li>
+      <li>Choose <strong>Batting</strong> or <strong>Bowling</strong> under Discipline.</li>
+      <li>Optionally enter all or part of a name in <strong>Player name</strong>. The search ignores upper/lower case. Clear the search to restore all matching players.</li>
+      <li>Review the chart and full table. The chart shows up to 12 leading players by runs or wickets within the current selection and search.</li>
+      <li>Select <strong>Download player statistics</strong> to export the current player table, including its scope, discipline and name filter.</li>
+    </ol>
+    <figure aria-labelledby="players-caption">
+      <figcaption id="players-caption">Flowchart 2. Compare player performance</figcaption>
+      <ol class="flow">
+        <li><span class="node">Choose historical matches using the sidebar</span></li>
+        <li><span class="node">Open Player Statistics and choose the player scope</span></li>
+        <li><span class="node decision">Choose a discipline</span></li>
+        <li><div class="branches">
+          <div class="branch"><strong>Batting</strong>Runs, balls, highest score, 100s, 50s, outs, average and strike rate</div>
+          <div class="branch"><strong>Bowling</strong>Runs conceded, legal balls, wickets, average, economy, strike rate and overs</div>
+        </div></li>
+        <li><span class="node">Search for a player if needed, then review the chart and table</span></li>
+        <li><span class="node">Download player statistics as CSV</span></li>
+      </ol>
+    </figure>
+  </section>
+
+  <section id="map">
+    <h2>6. Ground Map</h2>
+    <ol>
+      <li>Apply the historical filters and open <strong>Ground Map</strong>.</li>
+      <li>Zoom or pan to the area of interest. Hover over a marker to see the ground, country and number of selected Tests.</li>
+      <li>Use the table below the map to compare ground counts. Larger markers represent more Tests, not larger venues or higher scores.</li>
+      <li>Select <strong>Download ground counts</strong> to export venue counts and catalogue information.</li>
+    </ol>
+    <p>Coordinates are approximate. Known venue-name aliases are combined into one ground on the displayed map and table. The download retains venue-level rows, so aliases may appear separately there.</p>
+    <p>An unmapped-ground warning means a venue has no coordinate match in the local catalogue. It may still appear in the downloaded venue counts but will not have a map marker. An unavailable background map can indicate blocked tile requests or no internet connection.</p>
+  </section>
+
+  <section id="upcoming">
+    <h2>7. Upcoming Tests</h2>
+    <ol>
+      <li>Open <strong>Upcoming Tests</strong>.</li>
+      <li>Choose <strong>Men</strong>, <strong>Women</strong> or <strong>Both</strong>. This tab always limits fixtures to England.</li>
+      <li>Review scheduled Tests listed by BBC from today through the next 365 days. Fixtures are ordered by start time; completed or already-in-progress matches are excluded.</li>
+      <li>Read the teams, series description, scheduled start, venue and scheduled end. Start times are displayed in UK time, using GMT or BST as appropriate for the fixture date.</li>
+      <li>Select <strong>Refresh fixtures</strong> to request updated data or <strong>BBC scorecard</strong> to open the corresponding BBC page.</li>
+    </ol>
+    <p>The Updated timestamp shows when the dashboard fetched the response, not when BBC last changed a fixture. Future dates and venues can change. An empty list means no matching England Tests were returned by BBC in this period, not proof that none are scheduled.</p>
+  </section>
+
+  <section id="live">
+    <h2>8. Live Scores</h2>
+    <ol>
+      <li>Open <strong>Live Scores</strong>. The displayed date is today's date in the Europe/London time zone.</li>
+      <li>Choose <strong>Men</strong>, <strong>Women</strong> or <strong>Both</strong>. Initially, Both is selected and Tests involving all nations are eligible.</li>
+      <li>Turn on <strong>England matches only</strong> to restrict the list to England. If no England Test is listed, turn it off to see other nations' Tests.</li>
+      <li>Review each match's status, match day, BBC summary and team innings. Matches that started on an earlier day can appear because Tests span multiple days.</li>
+      <li>The live section refreshes automatically every 60 seconds while the app session remains active. Use <strong>Refresh scores</strong> for a manual update.</li>
+      <li>Select <strong>BBC scorecard</strong> for further information on BBC Sport.</li>
+    </ol>
+    <h3>Reading the score</h3>
+    <p><strong>250/8 dec (80.2 ov)</strong> means 250 runs for eight wickets, declared, after 80 overs and two legal balls. A completed all-out innings can appear as <strong>100 (30.0 ov)</strong>, without a wickets suffix. An ampersand separates two innings for the same team. <strong>Yet to bat</strong> means BBC supplied no innings for that team.</p>
+    <p>Today's list may contain scheduled, in-progress or finished matches. A listed Test is not necessarily being played at this instant: there may be an interval, rain delay or a gap between days. Automatic refresh does not guarantee ball-by-ball updates, and background browser tabs may refresh less frequently.</p>
+    <figure aria-labelledby="live-caption">
+      <figcaption id="live-caption">Flowchart 3. Check today's Test scores</figcaption>
+      <ol class="flow">
+        <li><span class="node">Open Live Scores and set the team filters</span></li>
+        <li><span class="node decision">Does BBC data load successfully?</span></li>
+        <li><div class="branches">
+          <div class="branch"><strong>No: feed warning</strong>Check your connection, try Refresh scores, or follow the BBC scores and fixtures link</div>
+          <div class="branch"><strong>Yes: inspect the results</strong>Matches listed: read status and innings<br>No matches listed: review filters or check again later</div>
+        </div></li>
+        <li><span class="node">For listed matches, open the BBC scorecard or leave the session active for periodic updates</span></li>
+      </ol>
+    </figure>
+    <div class="note"><strong>BBC coverage:</strong> the dashboard uses BBC Sport's public website data endpoint, not a guaranteed supported public API. Coverage can be incomplete, delayed or unavailable. A failed request produces a warning; historical CSV statistics are not substituted for live scores.</div>
+  </section>
+
+  <section id="downloads">
+    <h2>9. Downloads and Definitions</h2>
+    <table>
+      <caption>Available CSV downloads</caption>
+      <thead><tr><th scope="col">Button</th><th scope="col">Downloaded file</th><th scope="col">Contents</th></tr></thead>
+      <tbody>
+        <tr><td>Download matches</td><td>england_selected_matches.csv</td><td>All historically selected matches</td></tr>
+        <tr><td>Download player statistics</td><td>england_player_statistics.csv</td><td>Current filtered batting or bowling table</td></tr>
+        <tr><td>Download ground counts</td><td>england_grounds.csv</td><td>Venue-level Test counts and coordinate-catalogue fields</td></tr>
+      </tbody>
+    </table>
+    <p>Open CSV files in Excel or another analysis tool. Downloads reflect the current controls when selected and do not update automatically afterwards. Upcoming Tests and Live Scores currently provide BBC links, not CSV download buttons.</p>
+    <table>
+      <caption>Key statistical definitions</caption>
+      <thead><tr><th scope="col">Field</th><th scope="col">Meaning in this dashboard</th></tr></thead>
+      <tbody>
+        <tr><td>Matches / appearances</td><td>Matches with recorded batting or bowling participation, not full team-sheet selections. Batting participation includes a recorded non-striker.</td></tr>
+        <tr><td>Batting average</td><td>Runs divided by recorded dismissals. Blank when there are no dismissals.</td></tr>
+        <tr><td>Batting strike rate</td><td>Runs per 100 balls faced. Balls faced exclude wides but include no-balls.</td></tr>
+        <tr><td>Bowling average</td><td>Bowler-conceded runs divided by credited wickets. Blank when there are no credited wickets.</td></tr>
+        <tr><td>Economy</td><td>Bowler-conceded runs per six legal balls.</td></tr>
+        <tr><td>Bowling strike rate</td><td>Legal balls per credited wicket.</td></tr>
+        <tr><td>Overs</td><td>Completed overs followed by remaining legal balls. For example, 10.3 means 10 overs and three balls, not 10.3 decimal overs.</td></tr>
+        <tr><td>Credited wickets</td><td>Bowled, caught, caught and bowled, lbw, stumped and hit wicket. Run-outs are not credited to the bowler.</td></tr>
+        <tr><td>Bowler-conceded runs</td><td>Delivery totals less byes, leg-byes and penalty extras.</td></tr>
+      </tbody>
+    </table>
+    <h3>Important limitations</h3>
+    <ul>
+      <li>The historical dataset covers the available Cricsheet deliveries, not every England Test.</li>
+      <li>Adjustments outside recorded deliveries, declarations, follow-on status and victory margins are not represented in the historical innings data.</li>
+      <li>Historical innings wickets exclude retired hurt and retired not out. Batting dismissals include run-outs.</li>
+      <li>Player names are source labels rather than unique registry IDs. Combined views can pool matching name labels across datasets.</li>
+      <li>Changing historical filters changes aggregate statistics. Compare players only after confirming the selected matches and scope.</li>
+    </ul>
+  </section>
+
+  <section id="troubleshooting">
+    <h2>10. Troubleshooting</h2>
+    <table>
+      <caption>Common issues and next steps</caption>
+      <thead><tr><th scope="col">What you see</th><th scope="col">What to do</th></tr></thead>
+      <tbody>
+        <tr><td>Dashboard does not open</td><td>Check the Codespace and Streamlit process are running, then open port 8501 from the Ports panel. Localhost works only where the server is running.</td></tr>
+        <tr><td>Failed to fetch dynamically imported module / chart fails to load</td><td>Reopen port 8501 using Open in Browser, complete GitHub sign-in if prompted, then hard-refresh with Ctrl+Shift+R on Windows/Linux or Command+Shift+R on macOS. If it persists, ask the maintainer to check the server and forwarded asset requests.</td></tr>
+        <tr><td>Choose an end date</td><td>Complete both dates in the historical date selector.</td></tr>
+        <tr><td>No matches in this selection</td><td>Widen historical dates or remove opposition, ground and result filters. This message does not describe the BBC tabs.</td></tr>
+        <tr><td>No player records match this selection</td><td>Clear the name search, review Players and Discipline, and check the historical filters.</td></tr>
+        <tr><td>No upcoming England Tests / no Tests today</td><td>Review the tab's own team controls. In Live Scores, disable England matches only to check other nations. BBC may have no matching coverage.</td></tr>
+        <tr><td>BBC Sport scores are temporarily unavailable</td><td>Check internet access, use the refresh button, or open the BBC scores and fixtures link shown in the warning. Do not interpret an outage as no matches.</td></tr>
+        <tr><td>Map is blank or grounds are missing</td><td>Check internet access for tiles and look for missing-catalogue or unmapped-ground warnings. Ask the maintainer to review the venue catalogue.</td></tr>
+        <tr><td>No delivery CSVs found</td><td>Ask the maintainer to generate the notebook exports in the app's cricsheet_exports directory. See section 11.</td></tr>
+        <tr><td>Font differs from this guide</td><td>Trebuchet MS must be installed on the viewing device. Without it, the browser uses the configured sans-serif fallback.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="maintenance">
+    <h2>11. Setup and Data Maintenance</h2>
+    <p>This section is for the person running or maintaining the dashboard. Ordinary users do not need to run these commands.</p>
+    <h3>Install and start</h3>
+    <p>From the repository root, run:</p>
+    <pre><code>python -m pip install -r Participants/Kieran_Sharratt/requirements.txt
+python -m streamlit run Participants/Kieran_Sharratt/cricket_dashboard.py --server.port 8501</code></pre>
+    <p>Keep the process running while users access the dashboard. In Codespaces, use the forwarded port URL from the Ports panel; the URL can change between Codespaces.</p>
+    <h3>Refresh historical data</h3>
+    <ol>
+      <li>Open <code>england_test_matches.ipynb</code> in the Kieran_Sharratt folder.</li>
+      <li>Set the notebook's <code>OUTPUT_DIR</code> to this folder's <code>cricsheet_exports</code> directory and run the export workflow.</li>
+      <li>Confirm that <code>england_male_tests_deliveries.csv</code> and <code>england_female_tests_deliveries.csv</code> are available there.</li>
+      <li>Reload the dashboard. Its data cache uses export file modification times to detect changes.</li>
+    </ol>
+    <p>The app resolves data paths relative to its own location. Export files are generated data and are not tracked by Git. Ground coordinates and aliases are maintained in <code>cricket_venues.csv</code>.</p>
+    <h3>Run the checks</h3>
+    <pre><code>python -m unittest discover -s Participants/Kieran_Sharratt -p test_cricket_dashboard.py -v</code></pre>
+    <p>The tests cover historical calculations, export/map coverage, BBC Test filtering and innings formatting. They do not guarantee future BBC endpoint availability or complete fixture coverage.</p>
+  </section>
+
+  <footer>
+    <p><strong>Sources:</strong> <a href="https://cricsheet.org/downloads/">Cricsheet delivery data</a> and <a href="https://www.bbc.com/sport/cricket/scores-fixtures">BBC Sport scores and fixtures</a>.</p>
+    <p>This guide describes the dashboard as implemented on 27 October 2026. It is not an official ECB or BBC publication.</p>
+  </footer>
+</main>
+</body>
+</html>

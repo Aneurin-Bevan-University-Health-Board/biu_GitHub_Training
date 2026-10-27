@@ -6,3 +6,4 @@ outputs/
 .ipynb_checkpoints/
 __pycache__/
 .env
+cricsheet_exports/
