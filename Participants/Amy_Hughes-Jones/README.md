@@ -7,6 +7,8 @@
 
 ## What is in this folder
 
-| File | Added in |
+| File | Description |
 |------|----------|
-| README.md | Session 2 |
+| README.md | Participant profile |
+| patient_analytics.py | Synthetic patient analytics training example |
+| patient_analytics_technical_guide.md | Technical documentation |
