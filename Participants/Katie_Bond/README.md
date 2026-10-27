@@ -10,3 +10,5 @@
 | File | Added in |
 |------|----------|
 | README.md | Session 2 |
+| patient_analytics.py | Training material |
+| patient_analytics_technical_guide.md | Technical documentation |
