@@ -25,6 +25,21 @@ The module is organized into five main parts:
 5. **Command-line entry point** parses options and runs generation and output
    inside an audit session.
 
+```mermaid
+flowchart TD
+    CLI["CLI options: count, seed, output format"] --> SESSION["audit_session"]
+    SESSION --> GEN["generate_patients"]
+    GEN --> COHORT["Fictional patients and encounters"]
+    COHORT --> FORMAT{"Output format"}
+    FORMAT -->|Text| REPORT["render_report"]
+    REPORT --> ASSESS["Assess and sort patients"]
+    ASSESS --> STATS["Cohort statistics, tiers, conditions"]
+    STATS --> TEXT["Text report to standard output"]
+    FORMAT -->|CSV| CSVASSESS["assess_patient for each patient"]
+    CSVASSESS --> WRITE["write_csv"]
+    WRITE --> CSVOUT["CSV to standard output"]
+```
+
 ## Data model
 
 - `Vitals` stores systolic and diastolic blood pressure, heart rate, glucose,
