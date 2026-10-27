@@ -9,3 +9,6 @@
 | File | Added in |
 |------|----------|
 | README.md | Session 2 |
+| patient_analytics.py | Training example |
+| patient_analytics_guide.md | Training example |
+| patient_report.sql | Training example |
