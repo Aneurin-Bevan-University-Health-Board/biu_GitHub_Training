@@ -1,8 +1,9 @@
 # firstname-lastname
+## Subheading
 
-- **Name:** 
-- **Team:** 
-- **Today I want to learn:** 
+- **Name:** Katie Bond
+- **Team:** e-Systems
+- **Today I want to learn:** To become more familiar with GITHUB
 
 ## What is in this folder
 

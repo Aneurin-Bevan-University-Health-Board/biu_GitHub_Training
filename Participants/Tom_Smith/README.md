@@ -1,8 +1,8 @@
-# firstname-lastname
+# Tom_Smith_Training
 
-- **Name:** 
-- **Team:** 
-- **Today I want to learn:** 
+- **Name:** Tom Smith 
+- **Team:** Surgical Division
+- **Today I want to learn:** To use Git  
 
 ## What is in this folder
 
