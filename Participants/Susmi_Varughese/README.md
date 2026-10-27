@@ -1,8 +1,8 @@
-# firstname-lastname
+# Participant Details
 
-- **Name:** 
-- **Team:** 
-- **Today I want to learn:** 
+- **Name:** Susmi Mariam Varughese
+- **Team:** BI & Value - Finance
+- **Today I want to learn:** GitHub
 
 ## What is in this folder
 
