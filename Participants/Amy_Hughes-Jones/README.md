@@ -1,8 +1,9 @@
 # firstname-lastname
+## subtitle
 
-- **Name:** 
-- **Team:** 
-- **Today I want to learn:** 
+- **Name:** Amy
+- **Team:** Hughes-Jones
+- **Today I want to learn:** How to use GitHub
 
 ## What is in this folder
 
