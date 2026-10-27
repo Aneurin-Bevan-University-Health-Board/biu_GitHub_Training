@@ -1,8 +1,8 @@
-# firstname-lastname
+# Gareth-Moran
 
-- **Name:** 
-- **Team:** 
-- **Today I want to learn:** 
+- **Name:Gareth Moran** 
+- **Team:DDaT** 
+- **Today I want to learn: How to use GIT** 
 
 ## What is in this folder
 
