@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Patient Analytics | Fictional Cohort</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17243b;
+      --muted: #6b7890;
+      --line: #e4e9f1;
+      --surface: #fff;
+      --canvas: #f5f7fb;
+      --navy: #18375b;
+      --teal: #167c80;
+      --green: #23805c;
+      --amber: #a96713;
+      --red: #b54949;
+      --shadow: 0 8px 26px rgb(22 43 73 / 6%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+
+    .page { width: min(1240px, calc(100% - 48px)); margin: 0 auto; }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 12px;
+      font-weight: 800;
+      letter-spacing: -.05em;
+    }
+    .brand-name { font-size: 15px; font-weight: 750; letter-spacing: -.02em; }
+    .brand-caption { color: var(--muted); font-size: 12px; }
+
+    .local-badge, .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      border: 1px solid #d6e8df;
+      border-radius: 999px;
+      color: #28684d;
+      background: #f1f8f4;
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+    .local-badge::before, .demo-badge::before {
+      width: 7px;
+      height: 7px;
+      content: "";
+      border-radius: 50%;
+      background: #42936d;
+    }
+
+    main { padding: 34px 0 48px; }
+    .heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--teal);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0; font-size: clamp(26px, 4vw, 34px); letter-spacing: -.045em; line-height: 1.15; }
+    .subtitle { margin: 8px 0 0; color: var(--muted); }
+
+    .notice {
+      margin: 0 0 22px;
+      padding: 13px 16px;
+      border: 1px solid #f0dfb8;
+      border-radius: 12px;
+      color: #694b16;
+      background: #fff9eb;
+      font-size: 13px;
+    }
+    .notice strong { color: #563a0d; }
+
+    .controls, .panel, .stat-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .controls {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    .control { display: grid; gap: 5px; }
+    .control label { color: var(--muted); font-size: 11px; font-weight: 700; }
+    .control input, .control select {
+      height: 38px;
+      min-width: 124px;
+      padding: 0 10px;
+      border: 1px solid #d9e0ea;
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+    }
+    .control input:focus, .control select:focus, button:focus-visible, a:focus-visible {
+      outline: 3px solid rgb(22 124 128 / 22%);
+      outline-offset: 2px;
+    }
+    .primary-button {
+      min-height: 38px;
+      padding: 0 16px;
+      border: 0;
+      border-radius: 8px;
+      color: white;
+      background: var(--navy);
+      font-weight: 700;
+    }
+    .primary-button:hover { background: #244b75; }
+    .control-hint { align-self: center; margin-left: auto; color: var(--muted); font-size: 12px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .stat-card { min-height: 112px; padding: 17px 18px; }
+    .stat-label { color: var(--muted); font-size: 12px; font-weight: 650; }
+    .stat-value { margin-top: 7px; font-size: 28px; font-weight: 760; letter-spacing: -.04em; }
+    .stat-detail { margin-top: 2px; color: var(--muted); font-size: 11px; }
+
+    .overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(270px, .75fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .panel { padding: 20px; }
+    .panel-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    h2 { margin: 0; font-size: 15px; letter-spacing: -.02em; }
+    .panel-subtitle { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+    .tiers { display: grid; gap: 13px; }
+    .tier-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 30px;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .tier-name { color: var(--ink); font-weight: 650; text-transform: capitalize; }
+    .tier-track { height: 8px; overflow: hidden; border-radius: 8px; background: #edf0f5; }
+    .tier-fill { height: 100%; min-width: 0; border-radius: inherit; transition: width .25s ease; }
+    .tier-fill.low { background: #59a67a; }
+    .tier-fill.moderate { background: #dfab46; }
+    .tier-fill.high { background: #dc7d50; }
+    .tier-fill.critical { background: #c75c65; }
+    .tier-count { color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+    .conditions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .condition-chip {
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #43516a;
+      background: #f8f9fc;
+      font-size: 11px;
+    }
+    .condition-chip strong { margin-left: 5px; color: var(--ink); }
+    .empty-note { color: var(--muted); font-size: 13px; }
+
+    .table-panel { padding: 0; overflow: hidden; }
+    .table-panel .panel-heading { padding: 19px 20px 14px; margin: 0; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    thead { color: var(--muted); background: #f8f9fc; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; }
+    th, td { padding: 12px 16px; border-top: 1px solid var(--line); white-space: nowrap; }
+    th:first-child, td:first-child { padding-left: 20px; }
+    th:last-child, td:last-child { padding-right: 20px; }
+    tbody { font-size: 12px; }
+    tbody tr:hover { background: #fafbfd; }
+    .patient-name { color: var(--ink); font-weight: 700; }
+    .patient-id, .muted-cell { color: var(--muted); font-size: 11px; }
+    .risk-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 750;
+      text-transform: capitalize;
+    }
+    .risk-badge.low { color: #28684d; background: #edf7f0; }
+    .risk-badge.moderate { color: #805810; background: #fff6df; }
+    .risk-badge.high { color: #8c431f; background: #fff0e8; }
+    .risk-badge.critical { color: #983b43; background: #fcebed; }
+    .score-cell { font-weight: 750; font-variant-numeric: tabular-nums; }
+    .table-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .site-footnote { margin: 15px 2px 0; color: var(--muted); font-size: 11px; }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 30px, 600px); }
+      main { padding-top: 25px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .overview { grid-template-columns: 1fr; gap: 12px; }
+      .heading { align-items: flex-start; }
+      .control-hint { width: 100%; margin: 0; }
+    }
+
+    @media (max-width: 450px) {
+      .page { width: calc(100% - 22px); }
+      .brand-caption { display: none; }
+      .local-badge { padding: 6px 8px; font-size: 10px; }
+      .controls { gap: 10px; }
+      .control { flex: 1 1 42%; }
+      .control input, .control select { width: 100%; min-width: 0; }
+      .primary-button { flex: 1 1 100%; }
+      .stat-card { min-height: 100px; padding: 13px; }
+      .stat-value { font-size: 24px; }
+      .panel { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="page topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">PA</div>
+        <div>
+          <div class="brand-name">Patient Analytics</div>
+          <div class="brand-caption">Local training dashboard</div>
+        </div>
+      </div>
+      <span class="local-badge">Runs locally · No data sent</span>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="heading" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Cohort overview</p>
+        <h1 id="page-title">Fictional patient analytics</h1>
+        <p class="subtitle">Explore a generated cohort and the example scoring rules.</p>
+      </div>
+      <span class="demo-badge">Training demo</span>
+    </section>
+
+    <aside class="notice" role="note">
+      <strong>Fictional data only.</strong> This educational demo is not medical advice,
+      is not clinically validated, and must never be used for care decisions or real patient data.
+    </aside>
+
+    <form class="controls" id="cohort-form">
+      <div class="control">
+        <label for="count">Cohort size</label>
+        <input id="count" name="count" type="number" min="1" max="250" value="25">
+      </div>
+      <div class="control">
+        <label for="seed">Random seed</label>
+        <input id="seed" name="seed" type="number" value="1337">
+      </div>
+      <button class="primary-button" type="submit">Generate cohort</button>
+      <p class="control-hint">Same size and seed reproduce the same demo cohort.</p>
+    </form>
+
+    <section class="stats" aria-label="Cohort summary">
+      <article class="stat-card">
+        <div class="stat-label">Patients in cohort</div>
+        <div class="stat-value" id="patient-total">—</div>
+        <div class="stat-detail">Fictional records generated</div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-label">Mean latest glucose</div>
+        <div class="stat-value" id="mean-glucose">—</div>
+        <div class="stat-detail">mg/dL · available readings</div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-label">Median latest glucose</div>
+        <div class="stat-value" id="median-glucose">—</div>
+        <div class="stat-detail">mg/dL · available readings</div>
+      </article>
+      <article class="stat-card">
+        <div class="stat-label">High + critical tier</div>
+        <div class="stat-value" id="higher-risk">—</div>
+        <div class="stat-detail">Illustrative score categories only</div>
+      </article>
+    </section>
+
+    <section class="overview" aria-label="Cohort breakdowns">
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Risk tier distribution</h2>
+            <p class="panel-subtitle">Based on the example rules and score thresholds.</p>
+          </div>
+        </div>
+        <div class="tiers" id="tier-chart" aria-live="polite"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Most common conditions</h2>
+            <p class="panel-subtitle">Counts across this generated cohort.</p>
+          </div>
+        </div>
+        <div class="conditions" id="condition-list" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="panel table-panel" aria-labelledby="patients-heading">
+      <div class="panel-heading">
+        <div>
+          <h2 id="patients-heading">Cohort records</h2>
+          <p class="panel-subtitle">Sorted by example score, highest first.</p>
+        </div>
+        <div class="control">
+          <label for="search">Search name or demo ID</label>
+          <input id="search" type="search" placeholder="Search cohort…" autocomplete="off">
+        </div>
+        <div class="control">
+          <label for="tier-filter">Risk tier</label>
+          <select id="tier-filter">
+            <option value="all">All tiers</option>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Fictional patient</th>
+              <th scope="col">Age</th>
+              <th scope="col">Latest BP</th>
+              <th scope="col">Glucose</th>
+              <th scope="col">BMI</th>
+              <th scope="col">Conditions</th>
+              <th scope="col">Tier</th>
+              <th scope="col">Score</th>
+            </tr>
+          </thead>
+          <tbody id="patient-rows"></tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <span id="visible-count" aria-live="polite"></span>
+        <span>Generated in this browser</span>
+      </div>
+    </section>
+
+    <p class="site-footnote">
+      Educational thresholds mirror the accompanying Python example. This browser-only
+      generator is independent of the Python random-number generator; seeded records
+      are repeatable here but will not exactly match the Python script.
+    </p>
+  </main>
+
+  <script>
+    "use strict";
+
+    const firstNames = [
+      "Avery", "Blake", "Casey", "Dakota", "Emerson", "Finley", "Gray",
+      "Harper", "Indigo", "Jules", "Kai", "Lior", "Monroe", "Nova", "Onyx"
+    ];
+    const lastNames = [
+      "Alvarez", "Bennett", "Cho", "Delgado", "Everly", "Farooq", "Gupta",
+      "Haddad", "Ibrahim", "Johansson", "Kowalski", "Lindqvist", "Mbeki"
+    ];
+    const conditionPool = [
+      "hypertension", "type-2-diabetes", "asthma", "hyperlipidemia",
+      "obesity", "anxiety", "migraine", "hypothyroidism"
+    ];
+    const tierOrder = ["low", "moderate", "high", "critical"];
+    let patients = [];
+
+    function seededRandom(seed) {
+      let state = seed >>> 0;
+      return function random() {
+        state += 0x6D2B79F5;
+        let value = state;
+        value = Math.imul(value ^ (value >>> 15), value | 1);
+        value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+        return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function gaussian(random, mean, standardDeviation) {
+      const first = Math.max(random(), Number.EPSILON);
+      const second = random();
+      return mean + Math.sqrt(-2 * Math.log(first)) *
+        Math.cos(2 * Math.PI * second) * standardDeviation;
+    }
+
+    function randomInteger(random, min, max) {
+      return Math.floor(random() * (max - min + 1)) + min;
+    }
+
+    function addDays(input, days) {
+      const result = new Date(input);
+      result.setDate(result.getDate() + days);
+      return result;
+    }
+
+    function ageOn(birthDate) {
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const birthdayHasPassed =
+        today.getMonth() > birthDate.getMonth() ||
+        (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+      if (!birthdayHasPassed) age -= 1;
+      return age;
+    }
+
+    function randomVitals(random) {
+      return {
+        systolic: Number(gaussian(random, 122, 18).toFixed(1)),
+        diastolic: Number(gaussian(random, 78, 11).toFixed(1)),
+        heartRate: Number(gaussian(random, 78, 14).toFixed(1)),
+        glucose: Number(gaussian(random, 105, 30).toFixed(1)),
+        bmi: Number(gaussian(random, 26, 5).toFixed(1)),
+        temperature: Number(gaussian(random, 36.8, 0.4).toFixed(1))
+      };
+    }
+
+    function generatePatients(count, seed) {
+      const random = seededRandom(seed);
+      return Array.from({ length: count }, (_, index) => {
+        const birthDate = new Date(
+          randomInteger(random, 1945, 2010),
+          randomInteger(random, 1, 12) - 1,
+          randomInteger(random, 1, 28)
+        );
+        const conditionCount = randomInteger(random, 0, 3);
+        const conditions = [];
+        while (conditions.length < conditionCount) {
+          const condition = conditionPool[randomInteger(random, 0, conditionPool.length - 1)];
+          if (!conditions.includes(condition)) conditions.push(condition);
+        }
+
+        let encounterDate = addDays(birthDate, randomInteger(random, 6000, 20000));
+        let latestVitals = null;
+        const encounterCount = randomInteger(random, 1, 4);
+        for (let encounter = 0; encounter < encounterCount; encounter += 1) {
+          encounterDate = addDays(encounterDate, randomInteger(random, 30, 400));
+          latestVitals = randomVitals(random);
+        }
+
+        const patient = {
+          mrn: `MRN-${String(index + 1).padStart(5, "0")}`,
+          firstName: firstNames[randomInteger(random, 0, firstNames.length - 1)],
+          lastName: lastNames[randomInteger(random, 0, lastNames.length - 1)],
+          age: ageOn(birthDate),
+          conditions,
+          vitals: latestVitals
+        };
+        patient.name = `${patient.firstName} ${patient.lastName}`;
+        patient.score = assess(patient);
+        patient.tier = tierFromScore(patient.score);
+        return patient;
+      });
+    }
+
+    function assess(patient) {
+      let score = 0;
+      const vitals = patient.vitals;
+      if (vitals && (vitals.systolic >= 140 || vitals.diastolic >= 90)) score += 3;
+      if (vitals && vitals.glucose >= 140) score += 2;
+      if (vitals && vitals.bmi >= 30) score += 2;
+      if (patient.conditions.length >= 2) score += 1;
+      if (patient.age >= 65) score += 1;
+      return score;
+    }
+
+    function tierFromScore(score) {
+      if (score >= 8) return "critical";
+      if (score >= 5) return "high";
+      if (score >= 2) return "moderate";
+      return "low";
+    }
+
+    function median(values) {
+      if (values.length === 0) return null;
+      const sorted = [...values].sort((a, b) => a - b);
+      const middle = Math.floor(sorted.length / 2);
+      return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+    }
+
+    function element(tagName, className, text) {
+      const node = document.createElement(tagName);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function renderSummary() {
+      const glucoseValues = patients.map(patient => patient.vitals.glucose);
+      const mean = glucoseValues.reduce((sum, value) => sum + value, 0) / glucoseValues.length;
+      const tiers = Object.fromEntries(tierOrder.map(tier => [tier, 0]));
+      const conditions = new Map();
+      patients.forEach(patient => {
+        tiers[patient.tier] += 1;
+        patient.conditions.forEach(condition => {
+          conditions.set(condition, (conditions.get(condition) || 0) + 1);
+        });
+      });
+
+      document.getElementById("patient-total").textContent = patients.length;
+      document.getElementById("mean-glucose").textContent = `${mean.toFixed(1)}`;
+      document.getElementById("median-glucose").textContent = `${median(glucoseValues).toFixed(1)}`;
+      document.getElementById("higher-risk").textContent = tiers.high + tiers.critical;
+
+      const chart = document.getElementById("tier-chart");
+      chart.replaceChildren();
+      tierOrder.forEach(tier => {
+        const row = element("div", "tier-row");
+        row.append(element("span", "tier-name", tier));
+        const track = element("div", "tier-track");
+        const fill = element("div", `tier-fill ${tier}`);
+        fill.style.width = `${(tiers[tier] / patients.length) * 100}%`;
+        track.append(fill);
+        row.append(track, element("span", "tier-count", String(tiers[tier])));
+        chart.append(row);
+      });
+
+      const conditionList = document.getElementById("condition-list");
+      conditionList.replaceChildren();
+      const commonConditions = [...conditions.entries()]
+        .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+        .slice(0, 6);
+      if (commonConditions.length === 0) {
+        conditionList.append(element("span", "empty-note", "No conditions in this cohort."));
+      } else {
+        commonConditions.forEach(([condition, count]) => {
+          const chip = element("span", "condition-chip", condition);
+          chip.append(element("strong", "", String(count)));
+          conditionList.append(chip);
+        });
+      }
+    }
+
+    function renderTable() {
+      const query = document.getElementById("search").value.trim().toLowerCase();
+      const selectedTier = document.getElementById("tier-filter").value;
+      const filtered = patients
+        .filter(patient => selectedTier === "all" || patient.tier === selectedTier)
+        .filter(patient => `${patient.name} ${patient.mrn}`.toLowerCase().includes(query))
+        .sort((left, right) => right.score - left.score || left.name.localeCompare(right.name));
+
+      const rows = document.getElementById("patient-rows");
+      rows.replaceChildren();
+      filtered.forEach(patient => {
+        const row = document.createElement("tr");
+        const identity = element("td");
+        identity.append(
+          element("div", "patient-name", patient.name),
+          element("div", "patient-id", patient.mrn)
+        );
+        row.append(
+          identity,
+          element("td", "", String(patient.age)),
+          element("td", "", `${Math.round(patient.vitals.systolic)}/${Math.round(patient.vitals.diastolic)}`),
+          element("td", "", patient.vitals.glucose.toFixed(1)),
+          element("td", "", patient.vitals.bmi.toFixed(1)),
+          element("td", "muted-cell", patient.conditions.length ? patient.conditions.join(", ") : "—")
+        );
+        const tierCell = element("td");
+        tierCell.append(element("span", `risk-badge ${patient.tier}`, patient.tier));
+        row.append(tierCell, element("td", "score-cell", String(patient.score)));
+        rows.append(row);
+      });
+      document.getElementById("visible-count").textContent =
+        `Showing ${filtered.length} of ${patients.length} records`;
+    }
+
+    function generateFromForm(event) {
+      if (event) event.preventDefault();
+      const countInput = document.getElementById("count");
+      const seedInput = document.getElementById("seed");
+      const count = Number.parseInt(countInput.value, 10);
+      if (!Number.isInteger(count) || count < 1 || count > 250) {
+        countInput.setCustomValidity("Choose a cohort size from 1 to 250.");
+        countInput.reportValidity();
+        return;
+      }
+      countInput.setCustomValidity("");
+      const seed = Number.parseInt(seedInput.value, 10) || 0;
+      patients = generatePatients(count, seed);
+      renderSummary();
+      renderTable();
+    }
+
+    document.getElementById("cohort-form").addEventListener("submit", generateFromForm);
+    document.getElementById("search").addEventListener("input", renderTable);
+    document.getElementById("tier-filter").addEventListener("change", renderTable);
+    generateFromForm();
+  </script>
+</body>
+</html>
